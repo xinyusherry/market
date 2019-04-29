@@ -1,3 +1,6 @@
+* {
+  box-sizing: border-box;
+}
 html,
 body,
 #pageContainer {
@@ -6,6 +9,8 @@ body,
   margin: 0;
   padding: 0;
   border: 0;
+  font-size: 14px;
+  color: #fff;
 }
 #pageContainer {
   background: url("../images/body-bg.png") no-repeat center / 100% 100%;
@@ -15,17 +20,24 @@ body,
   display: flex;
 }
 #pageContainer header > div {
-  flex: 1 1 32%;
+  flex: 1 1 30%;
   height: 100%;
-  border: 1px solid #ccc;
 }
 #pageContainer header > div:first-child {
+  flex: 1 1 31%;
   margin-left: 1%;
 }
 #pageContainer header > div:nth-child(2) {
-  margin: 0 1%;
+  flex: 1 1 36%;
+  background: url("../images/title-bg.png") no-repeat center / 100% 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  padding-bottom: 10px;
 }
 #pageContainer header > div:nth-child(3) {
+  flex: 1 1 31%;
   margin-right: 1%;
 }
 #pageContainer section {
@@ -45,21 +57,15 @@ body,
 #pageContainer section > div:nth-child(3) {
   margin-right: 1%;
 }
-#pageContainer section > div .map {
+#pageContainer section > div.map {
   margin: 0 0.5%;
   overflow: hidden;
+  background: url("../images/map-bg.png") no-repeat center / 100% 100%;
 }
 #pageContainer section > div .lf-top {
   height: 10%;
   overflow: hidden;
-}
-#pageContainer section > div .lf-top .lf-top-cont {
-  height: calc(100% - 6px);
-  border: 2px solid #173265;
-}
-#pageContainer section > div .lf-mid {
-  height: 40%;
-  overflow: hidden;
+  background: url("../images/lf-top-bg.png") no-repeat center / 100% 100%;
 }
 #pageContainer section > div .lf-mid {
   background: url("../images/lf-mid-bg.png") no-repeat center / 100% 100%;
@@ -71,24 +77,48 @@ body,
 #pageContainer section > div .rt-bot {
   background: url("../images/bot-bg.png") no-repeat center / 100% 100%;
 }
+#pageContainer section > div .lf-mid {
+  margin-top: 2%;
+  height: 38%;
+  overflow: hidden;
+}
 #pageContainer section > div .lf-bot,
-#pageContainer section > div .rt-top,
 #pageContainer section > div .rt-bot {
+  margin-top: 2%;
+  height: 48%;
+  overflow: hidden;
+}
+#pageContainer section > div .rt-top {
   height: 50%;
   overflow: hidden;
 }
 #pageContainer section > div .titleDiv {
   height: 30px;
   line-height: 30px;
-  margin: 5px;
-  padding: 0 10px;
+  margin: 9px 0 1px 0;
+  padding: 0 15px;
   color: #fff;
   display: flex;
   justify-content: space-between;
+  font-size: 16px;
+}
+#pageContainer section > div .titleDiv span:last-child {
+  color: #2C7DE0;
+}
+#pageContainer section > div .titleDiv span:first-child {
+  color: #6AFFFF;
+}
+#pageContainer section > div .titleDiv span:first-child:before {
+  content: '';
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+  margin-right: 5px;
+  background: url("../images/title-icon.png") no-repeat center / 100% 100%;
 }
 #pageContainer section > div .titleCont {
   height: calc(100% - 40px);
-  border: 1px solid #ccc;
   display: flex;
   flex-direction: column;
 }
