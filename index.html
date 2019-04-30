@@ -46,17 +46,29 @@
             </div>
         </div>
     </section>
+    <el-dialog :title="dialogTitle" :visible.sync="isDialogShow" width="80%" height="400px">
+        <component
+          v-if="isDialogShow"
+          :is="dialogCompent"
+        ></component>
+      </el-dialog>
 </div>
 </body>
 <script type="text/javascript" src="./resources/js/jquery-1.11.3.min.js"></script>
 <script type="text/javascript" src="./resources/js/vue.min.js"></script>
 <script type="text/javascript" src="./resources/js/elementUI.js"></script>
+<script src="./resources/js/echarts-4.x.js"></script>
+<script src="./resources/js/allChild.js"></script>
 <script>
     var ajaxBaseUrl= "http://10.26.14.119:8087/microservice-ui";
     var pageVm = new Vue({
         el: '#pageContainer',
         data() {
-
+            return {
+                isDialogShow:true,
+                dialogTitle:'测试',
+                dialogCompent:"bar-chart"
+            }
         },
         method:{
 
