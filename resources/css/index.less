@@ -18,6 +18,13 @@ html,body,#pageContainer{
   font-size: 14px;
   color: #fff;
 }
+.flex{
+  display: flex;
+}
+.flexCol{
+  display: flex;
+  flex-direction: column;
+}
 #pageContainer{
   background: url("../images/body-bg.png")no-repeat center / 100% 100%;
   header{
@@ -26,10 +33,11 @@ html,body,#pageContainer{
     >div{
       flex: 1 1 30%;
       height: 100%;
-      //border: 1px solid #ccc;
       &:first-child{
         flex: 1 1 31%;
         margin-left: 1%;
+        justify-content: center;
+        color: #6AFFFF;
       }
       &:nth-child(2){
         flex: 1 1 36%;
@@ -43,6 +51,21 @@ html,body,#pageContainer{
       &:nth-child(3){
         flex: 1 1 31%;
         margin-right: 1%;
+      }
+      .flex{
+        align-items: center;
+      }
+      .icon{
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        vertical-align: middle;
+        &.phone{
+          background: url("../images/phone-icon.png")no-repeat center / contain;
+        }
+        &.msg{
+          background: url("../images/msg-icon.png")no-repeat center / contain;
+        }
       }
     }
   }
