@@ -192,3 +192,127 @@ html,body,#pageContainer{
 
 }
 
+/* 弹窗开始 */
+.el-dialog{
+  background: url(../images/dialog_bg.png) center center no-repeat / 100% 100%;
+  padding: 50px 40px 20px;
+}
+.el-dialog__headerbtn {
+  top: 14px;
+  right: -43px;
+}
+.el-icon-close:before {
+  content: "";
+  background: url(../images/dialog_close.png) center center no-repeat / 100% 100%;
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+}
+.el-dialog__title:before{
+  content: "";
+  background: url(../images/dialog_tit.png) center center no-repeat / 100% 100%;
+  display: inline-block;
+  width: 41px;
+  height: 21px;
+  margin-right: 20px;
+}
+.el-dialog__title {
+  line-height: 24px;
+  font-size: 18px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding-left: 4%;
+}
+.el-dialog__body {
+  padding: 0px 20px;
+}
+.el-picker-panel.el-date-picker.el-popper {
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  border-color: #5fb6f9;
+  .el-date-table th {
+    color: #fff;
+  }
+  .el-picker-panel__content table td .cell,
+  .el-date-picker__header > button,
+  .el-date-picker__header > span {
+    color: #fff;
+    &:hover {
+      color: #409eff;
+    }
+  }
+  .popper__arrow {
+    border-bottom-color: #409eff;
+    border-top-color: #409eff;
+    &::after {
+      border-bottom-color: #000;
+      border-top-color: #000;
+    }
+  }
+}
+.el-select-dropdown.el-popper,
+.el-select-dropdown.is-multiple {
+  background: rgba(0, 0, 0, 0.8);
+  border-color: #5fb6f9;
+  li.el-select-dropdown__item {
+    color: #fff;
+    &.selected {
+      color: #409eff;
+      background: transparent;
+    }
+    &.hover,
+    &:hover,
+    &.selected.hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+  }
+  .popper__arrow {
+    border-bottom-color: #409eff !important;
+    border-top-color: #409eff !important;
+    &::after {
+      border-bottom-color: #000 !important;
+      border-top-color: #000 !important;
+    }
+  }
+}
+input.el-input__inner {
+  background: transparent !important;
+  border-color: #226888!important;
+  font-size: 16px;
+  color: #ffffff;
+}
+.dia_header{
+  border-bottom: 1px solid #233c67;
+  margin-left: 60px;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 10px;
+  margin-top: 10px;
+  .left{
+    display: flex;
+    justify-content: space-between;
+    >div{
+      margin-right: 40px;
+    }
+  }
+  .right{
+    display: flex;
+    align-items: center;
+    >img{
+      width: 25px;
+      margin-right: 9px;
+    }
+  }
+}
+.nstration{
+  color: #2c84c4;
+  &.bottom{
+    border-bottom: 1px solid #638b9b;
+    padding-bottom: 3px;
+    cursor: pointer;
+  }
+}
+.mr10{
+  margin-right: 10px;
+}

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="./resources/css/index.css">
     <title>聚类市场运营平台</title>
 </head>
+
 <body>
 <div id="pageContainer" v-cloak>
     <header>
@@ -60,11 +62,8 @@
         </div>
     </section>
     <el-dialog :title="dialogTitle" :visible.sync="isDialogShow" width="80%" height="400px">
-        <component
-          v-if="isDialogShow"
-          :is="dialogCompent"
-        ></component>
-      </el-dialog>
+        <component v-if="isDialogShow" :is="dialogCompent"></component>
+    </el-dialog>
 </div>
 </body>
 <script type="text/javascript" src="./resources/js/jquery-1.11.3.min.js"></script>
@@ -73,21 +72,21 @@
 <script src="./resources/js/echarts-4.x.js"></script>
 <script src="./resources/js/allChild.js"></script>
 <script>
-    var ajaxBaseUrl= "http://10.26.14.119:8087/microservice-ui";
+    var ajaxBaseUrl = "http://10.26.14.119:8087/microservice-ui";
     var pageVm = new Vue({
         el: '#pageContainer',
         data() {
             return {
                 date:"",
                 isDialogShow:true,
-                dialogTitle:'测试',
-                dialogCompent:"bar-chart"
+                dialogTitle: '月收入统计',
+                dialogCompent: "bar-chart"
             }
         },
-        method:{
+        method: {
 
         },
-        created(){
+        created() {
 
         },
         mounted() {
@@ -103,4 +102,5 @@
         }
     });
 </script>
+
 </html>
