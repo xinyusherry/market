@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,54 +9,52 @@
     <link rel="stylesheet" href="./resources/css/index.css">
     <title>聚类市场运营平台</title>
 </head>
+
 <body>
-<div id="pageContainer" v-cloak>
-    <header>
-        <div class="flexCol">
-          <div class="flex"><i class="icon phone"></i><span>技术支撑电话：陈文葛 156-2001-1553</span></div>
-          <div class="flex"><i class="icon msg"></i><span>技术支撑邮箱：陈文葛 chenwg24@chinaunicom.cn</span></div>
-        </div>
-        <div><img src="./resources/images/logo.png" height="40" style="margin-right: 30px"/> 聚类市场运营平台</div>
-        <div></div>
-    </header>
-    <section>
-        <div class="section-lf">
-            <div class="lf-top">
-                <div class="lf-top-cont"></div>
+    <div id="pageContainer" v-cloak>
+        <header>
+            <div class="flexCol">
+                <div class="flex"><i class="icon phone"></i><span>技术支撑电话：陈文葛 156-2001-1553</span></div>
+                <div class="flex"><i class="icon msg"></i><span>技术支撑邮箱：陈文葛 chenwg24@chinaunicom.cn</span></div>
             </div>
-            <div class="lf-mid">
-                <div class="titleDiv"><span>月收入统计</span><span>2019-03</span></div>
-                <div class="titleCont"></div>
-            </div>
-            <div class="lf-bot">
-                <div class="titleDiv"><span>客户数总计</span><span>2019-03</span></div>
-                <div class="titleCont"></div>
-            </div>
-        </div>
-        <div class="map"></div>
-        <div class="section-rt">
-            <div class="rt-top">
-                <div class="titleDiv"><span>资源总览</span></div>
-                <div class="titleCont">
-                    <div>饼图</div>
+            <div><img src="./resources/images/logo.png" height="40" style="margin-right: 30px" /> 聚类市场运营平台</div>
+            <div></div>
+        </header>
+        <section>
+            <div class="section-lf">
+                <div class="lf-top">
+                    <div class="lf-top-cont"></div>
+                </div>
+                <div class="lf-mid">
+                    <div class="titleDiv"><span>月收入统计</span><span>2019-03</span></div>
+                    <div class="titleCont"></div>
+                </div>
+                <div class="lf-bot">
+                    <div class="titleDiv"><span>客户数总计</span><span>2019-03</span></div>
+                    <div class="titleCont"></div>
                 </div>
             </div>
-            <div class="rt-bot">
-                <div class="titleDiv"><span>当月发展业务总览</span><span>2019-03</span></div>
-                <div class="titleCont">
-                    <div>1</div>
-                    <div>2</div>
+            <div class="map"></div>
+            <div class="section-rt">
+                <div class="rt-top">
+                    <div class="titleDiv"><span>资源总览</span></div>
+                    <div class="titleCont">
+                        <div>饼图</div>
+                    </div>
+                </div>
+                <div class="rt-bot">
+                    <div class="titleDiv"><span>当月发展业务总览</span><span>2019-03</span></div>
+                    <div class="titleCont">
+                        <div>1</div>
+                        <div>2</div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <el-dialog :title="dialogTitle" :visible.sync="isDialogShow" width="80%" height="400px">
-        <component
-          v-if="isDialogShow"
-          :is="dialogCompent"
-        ></component>
-      </el-dialog>
-</div>
+        </section>
+        <el-dialog :title="dialogTitle" :visible.sync="isDialogShow" width="80%" height="400px">
+            <component v-if="isDialogShow" :is="dialogCompent"></component>
+        </el-dialog>
+    </div>
 </body>
 <script type="text/javascript" src="./resources/js/jquery-1.11.3.min.js"></script>
 <script type="text/javascript" src="./resources/js/vue.min.js"></script>
@@ -63,25 +62,27 @@
 <script src="./resources/js/echarts-4.x.js"></script>
 <script src="./resources/js/allChild.js"></script>
 <script>
-    var ajaxBaseUrl= "http://10.26.14.119:8087/microservice-ui";
+    var ajaxBaseUrl = "http://10.26.14.119:8087/microservice-ui";
     var pageVm = new Vue({
         el: '#pageContainer',
         data() {
             return {
-                isDialogShow:true,
-                dialogTitle:'测试',
-                dialogCompent:"bar-chart"
+                isDialogShow: true,
+                dialogTitle: '月收入统计',
+                dialogCompent: "bar-chart",
+             
             }
         },
-        method:{
+        method: {
 
         },
-        created(){
+        created() {
 
         },
-        mounted(){
+        mounted() {
 
         }
     });
 </script>
+
 </html>

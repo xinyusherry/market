@@ -2,7 +2,23 @@ Vue.component('bar-chart', {
 	props: [],
 	data: function() {
 		return {
-			dom: undefined
+      dom: undefined,
+      value1: "",
+      options: [
+          {
+              value: "rh",
+              label: "融合"
+          },
+          {
+              value: "dk",
+              label: "单宽"
+          },
+          {
+              value: "dy",
+              label: "单移"
+          }
+      ],
+      value: "rh"
 		}
 	},
 	mounted: function() {
@@ -68,7 +84,7 @@ Vue.component('bar-chart', {
                 title: [
                   {
                     left: "center",
-                    text: "同比分析",
+                    // text: "同比分析",
                     textStyle: {
                       fontSize: 21,
                       color: "#24FAFF"
@@ -79,9 +95,9 @@ Vue.component('bar-chart', {
                   data: ["2018", "2019"],
                   left: "85%",
                   top: 30,
-                //   textStyle: {
-                //     color: "#fff"
-                //   },
+                  textStyle: {
+                    color: "#fff"
+                  },
                   itemWidth: 30,
                   itemHeight: 10,
                   itemGap: 35
@@ -161,8 +177,46 @@ Vue.component('bar-chart', {
                 ],
                 series: series
               };
-			this.dom.setOption(option);
+      this.dom.setOption(option);
+      window.addEventListener("resize", () => {
+        this.dom.resize();
+      });
 		}
 	},
-	template: "<div ref='echartsRef' style='height:400px'></div>"
+  template: "<div>"+
+              "<div class='dia_header'>" +
+              '<div class="left">'+
+                '<div>'+
+                    '<span class="nstration mr10">账期选择:</span>'+
+                    '<el-date-picker v-model="value1" type="date" placeholder="选择日期" size="mini" style="width:150px;"></el-date-picker>'+
+                '</div>'+
+                '<div>'+
+                    '<span class="nstration mr10">分公司:</span>'+
+                    '<el-select v-model="value" placeholder="请选择" style="margin-right:20px" style="width:150px;" size="mini">'+
+                        '<el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">'+
+                        '</el-option>'+
+                    '</el-select>'+
+                '</div>'+
+                '<div>'+
+                    '<span class="nstration mr10">市场类型:</span>'+
+                    '<el-select v-model="value" placeholder="请选择" style="margin-right:20px" style="width:150px;" size="mini">'+
+                        '<el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">'+
+                        '</el-option>'+
+                    '</el-select>'+
+              '</div>'+
+                '<div>'+
+                    '<span class="nstration mr10">业务类型:</span>'+
+                    '<el-select v-model="value" placeholder="请选择" style="margin-right:20px" style="width:150px;" size="mini">'+
+                        '<el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">'+
+                        '</el-option>'+
+                    '</el-select>'+
+                '</div>'+
+            '</div>'+
+            '<div class="right">'+
+                '<img src="./resources/images/export-icon.png" alt="">'+
+                '<span class="nstration bottom">收入清单</span>'+
+            '</div>'+
+          "</div>"+
+            "<div ref='echartsRef' style='height:400px'></div>"+
+          "</div>"
 });
