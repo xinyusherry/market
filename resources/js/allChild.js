@@ -3,6 +3,7 @@ Vue.component('bar-chart', {
 	data: function() {
 		return {
       dom: undefined,
+      isActive:"1",
       value1: "",
       options: [
           {
@@ -184,6 +185,12 @@ Vue.component('bar-chart', {
 		}
 	},
   template: "<div>"+
+            '<ul class="dia-tab">'+
+              '<li :class="'+"{active:isActive === '1'}"+'"><span>发展同比</span></li>'+
+              '<li><span>发展环比</span></li>'+
+              '<li><span>拆机同比</span></li>'+
+              '<li><span>拆机环比</span></li>'+
+            '</ul>'+
               "<div class='dia_header'>" +
               '<div class="left">'+
                 '<div>'+
@@ -219,4 +226,21 @@ Vue.component('bar-chart', {
           "</div>"+
             "<div ref='echartsRef' style='height:400px'></div>"+
           "</div>"
+});
+
+
+// 网管大厦
+Vue.component('building', {
+	props: [],
+	data: function() {
+		return {
+      dom: undefined
+		}
+	},
+	mounted: function() {
+	},
+	methods: {
+	
+	},
+  template:"#building"
 });

@@ -51,9 +51,13 @@
                 </div>
             </div>
         </section>
-        <el-dialog :title="dialogTitle" :visible.sync="isDialogShow" width="80%" height="400px">
+        <el-dialog :title="dialogTitle" :visible.sync="isDialogShow" width="80%">
             <component v-if="isDialogShow" :is="dialogCompent"></component>
         </el-dialog>
+        <!-- 网管大厦 -->
+        <script type="x-template" id="building">
+            <h1 style="color:red">网管大厦</h1>
+        </script>
     </div>
 </body>
 <script type="text/javascript" src="./resources/js/jquery-1.11.3.min.js"></script>
@@ -70,7 +74,7 @@
                 isDialogShow: true,
                 dialogTitle: '月收入统计',
                 dialogCompent: "bar-chart",
-             
+                // dialogCompent: "building",
             }
         },
         method: {
