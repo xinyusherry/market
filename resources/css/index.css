@@ -346,3 +346,27 @@ input.el-input__inner {
 .mr10 {
   margin-right: 10px;
 }
+.dia-tab {
+  width: 620px;
+  margin: 0px auto 22px;
+  display: flex;
+  justify-content: space-between;
+}
+.dia-tab > li {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: skew(-30deg);
+  border: 1px solid #2E7e98;
+  cursor: pointer;
+  padding: 10px 0;
+  color: #2c84c4;
+}
+.dia-tab > li.active {
+  color: #ffffff;
+  background: linear-gradient(to bottom, #2ddafa, #2880ef);
+}
+.dia-tab > li > span {
+  transform: skew(30deg);
+}
