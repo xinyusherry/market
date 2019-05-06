@@ -308,8 +308,7 @@ input.el-input__inner {
 .nstration{
   color: #2c84c4;
   &.bottom{
-    border-bottom: 1px solid #638b9b;
-    padding-bottom: 3px;
+    text-decoration: underline;
     cursor: pointer;
   }
 }
@@ -338,5 +337,55 @@ input.el-input__inner {
     >span{
       transform: skew(30deg);
     }
+  }
+}
+
+// 网管大厦
+.wg-right-box{
+  display: flex;
+  justify-content: flex-end;
+  .wg-right{
+    display: flex;
+    justify-content: space-around;
+    >div{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 40px;
+      >img{
+        width: 25px;
+        margin-right: 9px;
+      }
+    }
+  }
+}
+.header_bg{
+  height: 43px;
+  background: url(../images/dialog_header_bg.png) left center / 100% 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  line-height: 43px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  >div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+  }
+  .flex_col_2{
+    flex: 2;
+  }
+  .flex_col_1{
+    flex: 1;
+  }
+  .flex_col_3{
+    flex: 3;
+  }
+  .line{
+    height: 60%;
+    width: 1px;
+    background-color: #3c7eaf;
   }
 }
