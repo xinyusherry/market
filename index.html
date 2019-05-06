@@ -11,43 +11,52 @@
 </head>
 
 <body>
-    <div id="pageContainer" v-cloak>
-        <header>
-            <div class="flexCol">
-                <div class="flex"><i class="icon phone"></i><span>技术支撑电话：陈文葛 156-2001-1553</span></div>
-                <div class="flex"><i class="icon msg"></i><span>技术支撑邮箱：陈文葛 chenwg24@chinaunicom.cn</span></div>
+<div id="pageContainer" v-cloak>
+    <header>
+        <div class="flexCol">
+          <div class="flex"><i class="icon phone"></i><span>技术支撑电话：陈文葛 156-2001-1553</span></div>
+          <div class="flex"><i class="icon msg"></i><span>技术支撑邮箱：陈文葛 chenwg24@chinaunicom.cn</span></div>
+        </div>
+        <div><img src="./resources/images/logo.png" height="40" style="margin-right: 30px"/> 聚类市场运营平台</div>
+        <div class="flexCol">
+          <div class="flex">
+            <div class="flex-item dateStyle">{{date}}</div>
+            <div class="flex-item"><i class="icon person"></i>登录人：陈文葛</div>
+            <div class="flex-item"><i class="icon end"></i>退出登录</div>
+          </div>
+          <div class="flex">
+            <div class="flex-item"><i class="icon export"></i> <span class="lineText">聚类市场基础信息明细下载</span></div>
+            <div class="flex-item"><i class="icon export"></i> <span class="lineText">聚类市场业务信息明细下载</span></div>
+          </div>
+        </div>
+    </header>
+    <section>
+        <div class="section-lf">
+            <div class="lf-top">
+                <div class="lf-top-cont"></div>
             </div>
-            <div><img src="./resources/images/logo.png" height="40" style="margin-right: 30px" /> 聚类市场运营平台</div>
-            <div></div>
-        </header>
-        <section>
-            <div class="section-lf">
-                <div class="lf-top">
-                    <div class="lf-top-cont"></div>
-                </div>
-                <div class="lf-mid">
-                    <div class="titleDiv"><span>月收入统计</span><span>2019-03</span></div>
-                    <div class="titleCont"></div>
-                </div>
-                <div class="lf-bot">
-                    <div class="titleDiv"><span>客户数总计</span><span>2019-03</span></div>
-                    <div class="titleCont"></div>
+            <div class="lf-mid">
+                <div class="titleDiv"><span>月收入统计</span><span>2019-03</span></div>
+                <div class="titleCont"></div>
+            </div>
+            <div class="lf-bot">
+                <div class="titleDiv"><span>客户数总计</span><span>2019-03</span></div>
+                <div class="titleCont"></div>
+            </div>
+        </div>
+        <div class="map"></div>
+        <div class="section-rt">
+            <div class="rt-top">
+                <div class="titleDiv"><span>资源总览</span></div>
+                <div class="titleCont">
+                    <div>饼图</div>
                 </div>
             </div>
-            <div class="map"></div>
-            <div class="section-rt">
-                <div class="rt-top">
-                    <div class="titleDiv"><span>资源总览</span></div>
-                    <div class="titleCont">
-                        <div>饼图</div>
-                    </div>
-                </div>
-                <div class="rt-bot">
-                    <div class="titleDiv"><span>当月发展业务总览</span><span>2019-03</span></div>
-                    <div class="titleCont">
-                        <div>1</div>
-                        <div>2</div>
-                    </div>
+            <div class="rt-bot">
+                <div class="titleDiv"><span>当月发展业务总览</span><span>2019-03</span></div>
+                <div class="titleCont">
+                    <div>1</div>
+                    <div>2</div>
                 </div>
             </div>
         </section>
@@ -71,7 +80,8 @@
         el: '#pageContainer',
         data() {
             return {
-                isDialogShow: true,
+                date:"",
+                isDialogShow:true,
                 dialogTitle: '月收入统计',
                 dialogCompent: "bar-chart",
                 // dialogCompent: "building",
@@ -84,7 +94,15 @@
 
         },
         mounted() {
-
+          let _this = this; // 声明一个变量指向Vue实例this，保证作用域一致
+          this.timer = setInterval(() => {
+            _this.date = new Date().toLocaleTimeString(); // 修改数据date
+          }, 1000)
+        },
+        beforeDestroy() {
+          if (this.timer) {
+            clearInterval(this.timer); // 在Vue实例销毁前，清除我们的定时器
+          }
         }
     });
 </script>
