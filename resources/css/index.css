@@ -15,9 +15,17 @@ body,
 .flex {
   display: flex;
 }
+.flex .flex-item {
+  flex: 1;
+}
 .flexCol {
   display: flex;
   flex-direction: column;
+}
+.flexcc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 #pageContainer {
   background: url("../images/body-bg.png") no-repeat center / 100% 100%;
@@ -48,6 +56,21 @@ body,
 #pageContainer header > div:nth-child(3) {
   flex: 1 1 31%;
   margin-right: 1%;
+  justify-content: center;
+  color: #6AFFFF;
+}
+#pageContainer header > div:nth-child(3) .flex-item {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+#pageContainer header > div:nth-child(3) .dateStyle {
+  letter-spacing: 2px;
+}
+#pageContainer header > div:nth-child(3) .lineText {
+  font-size: 12px;
+  text-decoration: underline;
+  cursor: pointer;
 }
 #pageContainer header > div .flex {
   align-items: center;
@@ -63,6 +86,15 @@ body,
 }
 #pageContainer header > div .icon.msg {
   background: url("../images/msg-icon.png") no-repeat center / contain;
+}
+#pageContainer header > div .icon.person {
+  background: url("../images/person-icon.png") no-repeat center / 50%;
+}
+#pageContainer header > div .icon.end {
+  background: url("../images/end-icon.png") no-repeat center / 50%;
+}
+#pageContainer header > div .icon.export {
+  background: url("../images/export-icon.png") no-repeat center / 70%;
 }
 #pageContainer section {
   height: 90%;
@@ -142,7 +174,7 @@ body,
   background: url("../images/title-icon.png") no-repeat center / 100% 100%;
 }
 #pageContainer section > div .titleCont {
-  height: calc(60%);
+  height: calc(100% - 40px);
   display: flex;
   flex-direction: column;
 }

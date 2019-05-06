@@ -1,6 +1,10 @@
 *{
   box-sizing: border-box;
 }
+@light-blue:#6AFFFF;
+@date-blue:#2C7DE0;
+@blue:#0FBBF3;
+@green:#6BDEB6;
 .clearfix(){
   /*清浮动*/
   &:after{
@@ -20,10 +24,18 @@ html,body,#pageContainer{
 }
 .flex{
   display: flex;
+  .flex-item{
+    flex:1;
+  }
 }
 .flexCol{
   display: flex;
   flex-direction: column;
+}
+.flexcc{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 #pageContainer{
   background: url("../images/body-bg.png")no-repeat center / 100% 100%;
@@ -37,7 +49,7 @@ html,body,#pageContainer{
         flex: 1 1 31%;
         margin-left: 1%;
         justify-content: center;
-        color: #6AFFFF;
+        color: @light-blue;
       }
       &:nth-child(2){
         flex: 1 1 36%;
@@ -51,6 +63,21 @@ html,body,#pageContainer{
       &:nth-child(3){
         flex: 1 1 31%;
         margin-right: 1%;
+        justify-content: center;
+        color: @light-blue;
+        .flex-item{
+          text-align: center;
+          justify-content: center;
+          align-items: center;
+        }
+        .dateStyle{
+          letter-spacing: 2px;
+        }
+        .lineText{
+          font-size: 12px;
+          text-decoration: underline;
+          cursor: pointer;
+        }
       }
       .flex{
         align-items: center;
@@ -65,6 +92,15 @@ html,body,#pageContainer{
         }
         &.msg{
           background: url("../images/msg-icon.png")no-repeat center / contain;
+        }
+        &.person{
+          background: url("../images/person-icon.png")no-repeat center / 50%;
+        }
+        &.end{
+          background: url("../images/end-icon.png")no-repeat center / 50%;
+        }
+        &.export{
+          background: url("../images/export-icon.png")no-repeat center / 70%;
         }
       }
     }
@@ -127,10 +163,10 @@ html,body,#pageContainer{
         justify-content: space-between;
         font-size: 16px;
         span:last-child{
-          color: #2C7DE0;
+          color: @date-blue;
         }
         span:first-child{
-          color: #6AFFFF;
+          color: @light-blue;
           &:before{
             content: '';
             display: inline-block;
@@ -144,7 +180,7 @@ html,body,#pageContainer{
 
       }
       .titleCont{
-        height: calc(100% - 40px);
+        height: ~"calc(100% - 40px)";
         display: flex;
         flex-direction: column;
         >div{
