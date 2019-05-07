@@ -1,5 +1,7 @@
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 html,
 body,
@@ -11,6 +13,9 @@ body,
   border: 0;
   font-size: 14px;
   color: #fff;
+}
+li {
+  list-style: none;
 }
 .flex {
   display: flex;
@@ -538,12 +543,15 @@ input.el-input__inner {
   display: flex;
   flex-direction: row;
   height: 446px;
+  margin-bottom: 16px;
 }
 .mainBox .col_1 {
   flex: 1;
 }
 .mainBox .col_2 {
-  flex: 2;
+  flex: 1.5;
+  display: flex;
+  justify-content: center;
 }
 .mainBox .left {
   background: url(../images/dialog_lf_line.png) left center no-repeat;
@@ -601,4 +609,81 @@ input.el-input__inner {
   align-items: center;
   justify-content: space-between;
   width: 90%;
+}
+.mainBox .lineChart {
+  height: 50px;
+  margin: 10px 0px;
+}
+.mainBox .violet {
+  color: #a95bcc;
+}
+.mainBox .myTab {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-left: 8px;
+}
+.mainBox .myTab > li {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  color: #1e587d;
+  font-size: 12px;
+  line-height: 24px;
+}
+.mainBox .myTab > li.active {
+  color: #28b3ee;
+  border-bottom: 1px transparent solid;
+  border-image: linear-gradient(to right, #2d5f75, #23b7cb) 1 10;
+}
+.mainBox .col_1_top,
+.mainBox .col_1_top_2 {
+  height: 222px;
+  background: url(../images/dialog_top_line.png) left center no-repeat;
+  padding-left: 62px;
+  margin-top: 34px;
+}
+.mainBox .col_1_top > div,
+.mainBox .col_1_top_2 > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.mainBox .col_1_top_2 {
+  height: 95px;
+  background: url(../images/dialog_bot_line.png) left center no-repeat;
+}
+.mainBox .rt_content {
+  height: 100%;
+  width: 80%;
+  background: url(../images/dialog_rt_bg.png) left center no-repeat / 100% 100%;
+  padding: 16px;
+}
+.mainBox .imgBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 294px;
+}
+.mainBox .imgBox > div {
+  width: 60%;
+  height: 92%;
+  background-color: #3b5e88;
+}
+.mainBox .rt_line {
+  height: 3px;
+  background: url(../images/dialog_rt_line.png) left center no-repeat / 100% 100%;
+}
+.mainBox .rt_bottom {
+  margin-top: 10px;
+}
+.mainBox .rt_bottom > li {
+  height: 31px;
+  background: url(../images/dialog_rt_li_bg.png) left center no-repeat / 100% 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 10px;
+  margin-bottom: 8px;
 }
