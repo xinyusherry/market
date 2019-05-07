@@ -238,9 +238,154 @@ Vue.component('building', {
 		}
 	},
 	mounted: function() {
+    this.drawLine('monthLine',"#77b653");
+    this.drawLine('yearLine',"#a95bcc");
+    this.drawPieChart('pieChart');
 	},
 	methods: {
-	
+    drawLine(id,color) {
+      var thisChart = echarts.init(document.getElementById(id));
+      thisChart.setOption({
+        grid: {
+          containLabel: true,
+          top: "20%",
+          bottom: "20%",
+          left: "1%",
+          right: "1%"
+        },
+        tooltip: {
+          // trigger: "axis",
+          // axisPointer:{
+          //   type:"none"
+          // }
+        },
+        xAxis: {
+          type: "category",
+          boundaryGap: true,
+          axisLabel: {
+            show: false
+          },
+          axisLine: {
+            show: false
+          },
+          splitLine: {
+            show: false
+          },
+          axisTick: {
+            show: false
+          },
+          data: [1,2,3,4,5]
+        },
+        yAxis: {
+          type: "value",
+          scale: true,
+          axisLabel: {
+            show: false
+          },
+          axisLine: {
+            show: false
+          },
+          splitLine: {
+            show: false
+          },
+          axisTick: {
+            show: false
+          }
+        },
+        series: [
+          {
+            type: "line",
+            symbolSize: 10,
+            itemStyle: {
+              borderWidth: 2
+            },
+            lineStyle: {
+              width: 4
+            },
+            color: color,
+            data: [20,30,25,40,35]
+          }
+        ]
+      });
+      window.addEventListener("resize", () => {
+        thisChart.resize();
+      });
+    },
+    drawPieChart(id) {
+      var thisChart = echarts.init(document.getElementById(id));
+      thisChart.clear();
+      var option = {
+        tooltip: {
+          trigger: "item",
+          formatter: "{a} <br/>{b}: {c} ({d}%)"
+        },
+        title: [
+          {
+            left: "center",
+            text: "",
+            textStyle: {
+              fontSize: 21,
+              color: "#24FAFF"
+            }
+          }
+        ],
+        series: [
+          {
+            name: "产品结构",
+            type: "pie",
+            radius: ["30%", "70%"],
+            avoidLabelOverlap: true,
+            color: [
+              "#F868AF",
+              "#01C6FD",
+              "#1749F9",
+              "#E5621C",
+              "#D70B20",
+              "#19C072",
+              "#F75C19"
+            ],
+            label: {
+              normal: {
+                show: true,
+                position: "outside",
+                formatter: "{b}\n{d}%",
+                // formatter: function(params) {
+                //   return (
+                //     "{white|" + params.name + "}\n{per|" + params.percent + "%}"
+                //   );
+                // },
+                rich: {
+                  white: {
+                    color: "#fff",
+                    align: "center",
+                    fontSize: 14,
+                    padding: [21, 0]
+                  },
+                  per: {
+                    color: "#fff",
+                    fontSize: 15,
+                    align: "center"
+                  }
+                }
+              },
+              emphasis: {
+                show: true
+              }
+            },
+            labelLine: {
+              normal: {
+                show: true
+              }
+            },
+            data: [{name:"xx",value:123},{name:"xx2",value:1234},{name:"xx3",value:223},{name:"xx5",value:433}]
+          }
+        ]
+      };
+      thisChart.setOption(option);
+      window.addEventListener("resize", () => {
+        thisChart.resize();
+      });
+    },
 	},
   template:"#building"
 });
