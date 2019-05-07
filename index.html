@@ -85,12 +85,45 @@
                 </div>
             </div>
         </section>
+        <!-- 弹出层 -->
         <el-dialog :title="dialogTitle" :visible.sync="isDialogShow" width="80%">
             <component v-if="isDialogShow" :is="dialogCompent"></component>
         </el-dialog>
         <!-- 网管大厦 -->
         <script type="x-template" id="building">
-            <h1 style="color:red">网管大厦</h1>
+            <div style="margin-left:60px">
+                <div class="wg-right-box">
+                    <div class="wg-right">
+                        <div>
+                            <img src="./resources/images/export-icon.png" alt="">
+                            <span class="nstration bottom">聚类市场基础信息明细下载</span>
+                        </div>
+                        <div style="margin:0">
+                            <img src="./resources/images/export-icon.png" alt="">
+                            <span class="nstration bottom">聚类市场业务信息明细下载</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="header_bg">
+                    <div class="flex_col_2">
+                        <div>2</div>
+                        <div class="line"></div>
+                    </div>
+                    <div class="flex_col_1">
+                        <div>2</div>
+                        <div class="line"></div>
+                    </div>
+                    <div class="flex_col_1"> 
+                        <div>2</div>
+                        <div class="line"></div>
+                    </div>
+                    <div class="flex_col_3">
+                        <div>2</div>
+                        <div class="line"></div>
+                    </div>
+                </div>
+                
+            </div>
         </script>
     </div>
 </body>
@@ -108,8 +141,8 @@
                 date:"",
                 isDialogShow:true,
                 dialogTitle: '月收入统计',
-                dialogCompent: "bar-chart",
-                // dialogCompent: "building",
+                // dialogCompent: "bar-chart",
+                dialogCompent: "building",
             }
         },
         method: {
