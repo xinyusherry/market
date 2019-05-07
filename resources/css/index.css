@@ -181,6 +181,18 @@ body,
 #pageContainer section > div .titleCont > div {
   flex: 1;
 }
+#pageContainer section > div .titleCont > div.topBorder {
+  border-top: 2px solid #174C8C;
+}
+#pageContainer section > div .titleCont > div .block-cont {
+  height: calc(100% - 30px);
+}
+#pageContainer section > div .titleCont > div .block-cont.blue {
+  background: url("../images/type-bg-blue.png") 50% 70% / 90% auto no-repeat;
+}
+#pageContainer section > div .titleCont > div .block-cont.green {
+  background: url("../images/type-bg-green.png") 50% 70% / 90% auto no-repeat;
+}
 #pageContainer section > div .lf-top-cont {
   height: 100%;
   justify-content: center;

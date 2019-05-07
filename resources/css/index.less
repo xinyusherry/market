@@ -185,6 +185,18 @@ html,body,#pageContainer{
         flex-direction: column;
         >div{
           flex: 1;
+          &.topBorder{
+            border-top: 2px solid #174C8C;
+          }
+          .block-cont{
+            height: ~"calc(100% - 30px)";
+            &.blue{
+              background: url("../images/type-bg-blue.png") 50% 70% ~"/" 90% auto no-repeat;
+            }
+            &.green{
+              background: url("../images/type-bg-green.png") 50% 70% ~"/" 90% auto no-repeat;
+            }
+          }
         }
       }
       .lf-top-cont{
