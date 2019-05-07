@@ -393,8 +393,7 @@ input.el-input__inner {
   height: 43px;
   background: url(../images/dialog_header_bg.png) left center / 100% 100%;
   margin-top: 10px;
-  margin-bottom: 10px;
-  line-height: 43px;
+  margin-bottom: 45px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -403,6 +402,17 @@ input.el-input__inner {
     justify-content: space-between;
     align-items: center;
     height: 100%;
+  }
+  .center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .center2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
   }
   .flex_col_2{
     flex: 2;
@@ -418,4 +428,97 @@ input.el-input__inner {
     width: 1px;
     background-color: #3c7eaf;
   }
+}
+.baseInfo{
+  color: #ffffff;
+  font-size: 16px;
+  margin-left: 9px;
+  margin-right: 13px;
+}
+.whiteInfo{
+  color: #ffffff;
+  font-size: 12px;
+  margin-left: 10px;
+}
+.blueInfo{
+  color: #28b3ee;
+}
+.spot{
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: #28b3ee;
+  margin-right: 6px;
+  display: inline-block;
+}
+.ml15{
+  margin-left: 15px;
+}
+.mainBox{
+  display: flex;
+  flex-direction: row;
+  height: 446px;
+ .col_1{
+   flex: 1;
+ }
+ .col_2{
+  flex: 2;
+ }
+ .left{
+   background: url(../images/dialog_lf_line.png) left center no-repeat;
+ }
+ .col_top{
+   height: 200px;
+   position: relative;
+ }
+ .col_bottom{
+   height: 246px;
+   position: relative;
+ }
+ .tit{
+   background: url(../images/dialog_tit_bg.png) left center no-repeat;
+   color: #28b3ee;
+   width: 176px;
+   height: 54px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-size: 16px;
+   position: absolute;
+   top: -28px;
+   left: 49px;
+ }
+ .size20{
+   font-size: 20px;
+ }
+ .out_div{
+  height: 168px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-evenly;
+  >div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+  }
+ }
+ .bot_content{
+   position: absolute;
+   top: 28px;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   padding-top: 10px;
+   >div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+  }
+ }
 }
