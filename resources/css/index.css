@@ -184,14 +184,84 @@ body,
 #pageContainer section > div .titleCont > div.topBorder {
   border-top: 2px solid #174C8C;
 }
+#pageContainer section > div .titleCont > div .flexbet {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+}
+#pageContainer section > div .titleCont > div .flexbet > div {
+  display: flex;
+  align-items: center;
+}
+#pageContainer section > div .titleCont > div .block-title {
+  line-height: 30px;
+  padding: 0 20px;
+}
+#pageContainer section > div .titleCont > div .block-title.blue {
+  color: #0FBBF3;
+}
+#pageContainer section > div .titleCont > div .block-title.blue > div::before {
+  background: #0FBBF3;
+}
+#pageContainer section > div .titleCont > div .block-title.green {
+  color: #6BDEB6;
+}
+#pageContainer section > div .titleCont > div .block-title.green > div::before {
+  background: #6BDEB6;
+}
+#pageContainer section > div .titleCont > div .block-title > div {
+  border-bottom: 1px dashed #2C7DE0;
+  padding: 0 10px 0 20px;
+  position: relative;
+}
+#pageContainer section > div .titleCont > div .block-title > div::before {
+  content: "";
+  position: absolute;
+  top: 13px;
+  left: 8px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+}
+#pageContainer section > div .titleCont > div .block-title span {
+  font-size: 22px;
+}
 #pageContainer section > div .titleCont > div .block-cont {
   height: calc(100% - 30px);
+  display: flex;
+  flex-direction: column;
+}
+#pageContainer section > div .titleCont > div .block-cont.flex {
+  flex-direction: row;
+}
+#pageContainer section > div .titleCont > div .block-cont.flex .numberBlock {
+  color: #0FBBF3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#pageContainer section > div .titleCont > div .block-cont.flex .numberBlock span {
+  font-size: 22px;
+}
+#pageContainer section > div .titleCont > div .block-cont > div {
+  flex: 1;
+  justify-content: space-around;
+}
+#pageContainer section > div .titleCont > div .block-cont > div .flexbet {
+  font-size: 13px;
+  padding: 0 30px 0 40px;
 }
 #pageContainer section > div .titleCont > div .block-cont.blue {
-  background: url("../images/type-bg-blue.png") 50% 70% / 90% auto no-repeat;
+  background: url("../images/type-bg-blue.png") 50% 80% / 90% auto no-repeat;
+}
+#pageContainer section > div .titleCont > div .block-cont.blue .flexbet > div:first-child {
+  color: #0FBBF3;
 }
 #pageContainer section > div .titleCont > div .block-cont.green {
-  background: url("../images/type-bg-green.png") 50% 70% / 90% auto no-repeat;
+  background: url("../images/type-bg-green.png") 50% 80% / 90% auto no-repeat;
+}
+#pageContainer section > div .titleCont > div .block-cont.green .flexbet > div:first-child {
+  color: #6BDEB6;
 }
 #pageContainer section > div .lf-top-cont {
   height: 100%;
@@ -320,7 +390,7 @@ body,
 }
 input.el-input__inner {
   background: transparent !important;
-  border-color: #226888 !important;
+  border-color: #226888!important;
   font-size: 16px;
   color: #ffffff;
 }
