@@ -274,6 +274,35 @@ li {
 #pageContainer section > div .titleCont > div .block-cont.green .flexbet > div:first-child {
   color: #6BDEB6;
 }
+#pageContainer section > div .titleCont > div .cont-title {
+  color: #2C7DE0;
+  padding: 8px 20px;
+  height: 30px;
+}
+#pageContainer section > div .titleCont > div .total {
+  height: calc(100% - 30px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#pageContainer section > div .titleCont > div .total .number {
+  width: 300px;
+  height: 100%;
+  background: url("../images/number-bg.png") no-repeat center / contain;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+#pageContainer section > div .titleCont > div .total .number span {
+  font-size: 40px;
+  letter-spacing: 25px;
+  margin-left: 32px;
+}
+#pageContainer section > div .titleCont > div .total .number .unit {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+}
 #pageContainer section > div .lf-top-cont {
   height: 100%;
   justify-content: center;
