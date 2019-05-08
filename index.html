@@ -538,19 +538,18 @@
                     <span class="nstration bottom">清单明细下载</span>
                 </div>
             </div>
-          
-        </div>
-    </script>
-    </div>
-      <!-- <ul class="list">
-                <li v-for="item in lists">
+            <ul class="list">
+                <li v-for="(item,index) in lists" :key="index">
                     <div>
                         <span>{{item.floor}}</span>
                     </div>
                     <div><img src="./resources/images/sed_top.png" alt=""></div>
                     <div v-if="item.list.length">3</div>
                 </li>
-            </ul> -->
+            </ul>
+        </div>
+    </script>
+    </div>
 </body>
 <script type="text/javascript" src="./resources/js/jquery-1.11.3.min.js"></script>
 <!-- <script type="text/javascript" src="./resources/js/vue.min.js"></script> -->
