@@ -11,153 +11,189 @@
 </head>
 
 <body>
-<div id="pageContainer" v-cloak>
-    <header>
-        <div class="flexCol">
-          <div class="flex"><i class="icon phone"></i><span>技术支撑电话：陈文葛 156-2001-1553</span></div>
-          <div class="flex"><i class="icon msg"></i><span>技术支撑邮箱：陈文葛 chenwg24@chinaunicom.cn</span></div>
-        </div>
-        <div><img src="./resources/images/logo.png" height="40" style="margin-right: 30px"/> 聚类市场运营平台</div>
-        <div class="flexCol">
-          <div class="flex">
-            <div class="flex-item dateStyle">{{date}}</div>
-            <div class="flex-item"><i class="icon person"></i>登录人：陈文葛</div>
-            <div class="flex-item"><i class="icon end"></i>退出登录</div>
-          </div>
-          <div class="flex">
-            <div class="flex-item"><i class="icon export"></i> <span class="lineText">聚类市场基础信息明细下载</span></div>
-            <div class="flex-item"><i class="icon export"></i> <span class="lineText">聚类市场业务信息明细下载</span></div>
-          </div>
-        </div>
-    </header>
-    <section>
-        <div class="section-lf">
-            <div class="lf-top">
-                <div class="lf-top-cont flex">
-                  <div class="flex-item"><i class="icon bar"></i><div class="flexCol"><p>7,560</p><p>聚类市场数</p></div></div>
-                  <div class="flex-item"><i class="icon bar"></i><div class="flexCol"><p>7,560</p><p>商务楼宇</p></div></div>
-                  <div class="flex-item"><i class="icon bar"></i><div class="flexCol"><p>7,560</p><p>专业市场</p></div></div>
-                  <div class="flex-item"><i class="icon bar"></i><div class="flexCol"><p>7,560</p><p>工业园区</p></div></div>
+    <div id="pageContainer" v-cloak>
+        <header>
+            <div class="flexCol">
+                <div class="flex"><i class="icon phone"></i><span>技术支撑电话：陈文葛 156-2001-1553</span></div>
+                <div class="flex"><i class="icon msg"></i><span>技术支撑邮箱：陈文葛 chenwg24@chinaunicom.cn</span></div>
+            </div>
+            <div><img src="./resources/images/logo.png" height="40" style="margin-right: 30px" /> 聚类市场运营平台</div>
+            <div class="flexCol">
+                <div class="flex">
+                    <div class="flex-item dateStyle">{{date}}</div>
+                    <div class="flex-item"><i class="icon person"></i>登录人：陈文葛</div>
+                    <div class="flex-item"><i class="icon end"></i>退出登录</div>
+                </div>
+                <div class="flex">
+                    <div class="flex-item"><i class="icon export"></i> <span class="lineText">聚类市场基础信息明细下载</span></div>
+                    <div class="flex-item"><i class="icon export"></i> <span class="lineText">聚类市场业务信息明细下载</span></div>
                 </div>
             </div>
-            <div class="lf-mid">
-                <div class="titleDiv"><span>月收入统计</span><span>2019-03</span></div>
-                <div class="titleCont">
-                  <div>1</div>
-                  <div class="topBorder">2</div>
-                </div>
-            </div>
-            <div class="lf-bot">
-                <div class="titleDiv"><span>客户数总计</span><span>2019-03</span></div>
-                <div class="titleCont">
-                  <div>
-                      <div class="block-title blue">
-                          <div class="flexbet">
-                              <div>固网业务发展</div><div><span>122,344.21</span>（户）</div>
-                          </div>
-                      </div>
-                      <div class="block-cont blue">
-                        <div class="flex">
-                            <div class="flexbet">
-                                <div>固话</div><div>122,344（户）</div>
-                            </div>
-                            <div class="flexbet">
-                                <div>FTTH</div><div>122,344（户）</div>
+        </header>
+        <section>
+            <div class="section-lf">
+                <div class="lf-top">
+                    <div class="lf-top-cont flex">
+                        <div class="flex-item"><i class="icon bar"></i>
+                            <div class="flexCol">
+                                <p>7,560</p>
+                                <p>聚类市场数</p>
                             </div>
                         </div>
-                        <div class="flex">
-                            <div class="flexbet">
-                                <div>宽带专线</div><div>122,344（户）</div>
-                            </div>
-                            <div class="flexbet">
-                                <div>网元</div><div>122,344（户）</div>
+                        <div class="flex-item"><i class="icon bar"></i>
+                            <div class="flexCol">
+                                <p>7,560</p>
+                                <p>商务楼宇</p>
                             </div>
                         </div>
-                      </div>
-                  </div>
-                  <div class="topBorder">
-                      <div class="block-title blue">
-                          <div style="border:none">异网客户数总计</div>
-                      </div>
-                      <div class="block-cont flex">
-                        <div class="flex-item">
-                            <div id="gaugeChart" style="width:100%;height:100%;">仪表盘</div>
-                        </div>
-                        <div class="flex-item numberBlock">
-                            <div><span>122,344.21</span>（户）</div>
-                        </div>
-                      </div>
-                  </div>
-                </div>
-            </div>
-        </div>
-        <div class="map"></div>
-        <div class="section-rt">
-            <div class="rt-top">
-                <div class="titleDiv"><span>资源总览</span></div>
-                <div class="titleCont">
-                    <div>饼图</div>
-                </div>
-            </div>
-            <div class="rt-bot">
-                <div class="titleDiv"><span>当月发展业务总览</span><span>2019-03</span></div>
-                <div class="titleCont">
-                    <div>
-                      <div class="block-title blue">
-                          <div class="flexbet">
-                              <div>固网业务发展</div><div><span>122,344.21</span>（户）</div>
-                          </div>
-                      </div>
-                      <div class="block-cont blue">
-                        <div class="flex">
-                            <div class="flexbet">
-                                <div>固话</div><div>122,344（户）</div>
-                            </div>
-                            <div class="flexbet">
-                                <div>FTTH</div><div>122,344（户）</div>
+                        <div class="flex-item"><i class="icon bar"></i>
+                            <div class="flexCol">
+                                <p>7,560</p>
+                                <p>专业市场</p>
                             </div>
                         </div>
-                        <div class="flex">
-                            <div class="flexbet">
-                                <div>宽带专线</div><div>122,344（户）</div>
-                            </div>
-                            <div class="flexbet">
-                                <div>网元</div><div>122,344（户）</div>
+                        <div class="flex-item"><i class="icon bar"></i>
+                            <div class="flexCol">
+                                <p>7,560</p>
+                                <p>工业园区</p>
                             </div>
                         </div>
-                      </div>
                     </div>
-                    <div class="topBorder">
-                        <div class="block-title green">
-                            <div class="flexbet">
-                                <div>固网业务拆机</div><div><span>122,344.21</span>（户）</div>
+                </div>
+                <div class="lf-mid" @click="sendMsg('月收入统计','monthIncome')">
+                    <div class="titleDiv"><span>月收入统计</span><span>2019-03</span></div>
+                    <div class="titleCont">
+                        <div>1</div>
+                        <div class="topBorder">2</div>
+                    </div>
+                </div>
+                <div class="lf-bot" @click="sendMsg('客户数总计','customer')">
+                    <div class="titleDiv"><span>客户数总计</span><span>2019-03</span></div>
+                    <div class="titleCont">
+                        <div>
+                            <div class="block-title blue">
+                                <div class="flexbet">
+                                    <div>固网业务发展</div>
+                                    <div><span>122,344.21</span>（户）</div>
+                                </div>
+                            </div>
+                            <div class="block-cont blue">
+                                <div class="flex">
+                                    <div class="flexbet">
+                                        <div>固话</div>
+                                        <div>122,344（户）</div>
+                                    </div>
+                                    <div class="flexbet">
+                                        <div>FTTH</div>
+                                        <div>122,344（户）</div>
+                                    </div>
+                                </div>
+                                <div class="flex">
+                                    <div class="flexbet">
+                                        <div>宽带专线</div>
+                                        <div>122,344（户）</div>
+                                    </div>
+                                    <div class="flexbet">
+                                        <div>网元</div>
+                                        <div>122,344（户）</div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="block-cont green">
-                          <div class="flex">
-                              <div class="flexbet">
-                                  <div>固话</div><div>122,344（户）</div>
-                              </div>
-                              <div class="flexbet">
-                                  <div>FTTH</div><div>122,344（户）</div>
-                              </div>
-                          </div>
-                          <div class="flex">
-                              <div class="flexbet">
-                                  <div>宽带专线</div><div>122,344（户）</div>
-                              </div>
-                              <div class="flexbet">
-                                  <div>网元</div><div>122,344（户）</div>
-                              </div>
-                          </div>
+                        <div class="topBorder">
+                            <div class="block-title blue">
+                                <div style="border:none">异网客户数总计</div>
+                            </div>
+                            <div class="block-cont flex">
+                                <div class="flex-item">
+                                    <div id="gaugeChart" style="width:100%;height:100%;">仪表盘</div>
+                                </div>
+                                <div class="flex-item numberBlock">
+                                    <div><span>122,344.21</span>（户）</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="map" @click="sendMsg('天津市网管大厦','building')"></div>
+            <div class="section-rt">
+                <div class="rt-top">
+                    <div class="titleDiv"><span>资源总览</span></div>
+                    <div class="titleCont">
+                        <div>饼图</div>
+                    </div>
+                </div>
+                <div class="rt-bot" @click="sendMsg('当月发展业务总览','business')">
+                    <div class="titleDiv"><span>当月发展业务总览</span><span>2019-03</span></div>
+                    <div class="titleCont">
+                        <div>
+                            <div class="block-title blue">
+                                <div class="flexbet">
+                                    <div>固网业务发展</div>
+                                    <div><span>122,344.21</span>（户）</div>
+                                </div>
+                            </div>
+                            <div class="block-cont blue">
+                                <div class="flex">
+                                    <div class="flexbet">
+                                        <div>固话</div>
+                                        <div>122,344（户）</div>
+                                    </div>
+                                    <div class="flexbet">
+                                        <div>FTTH</div>
+                                        <div>122,344（户）</div>
+                                    </div>
+                                </div>
+                                <div class="flex">
+                                    <div class="flexbet">
+                                        <div>宽带专线</div>
+                                        <div>122,344（户）</div>
+                                    </div>
+                                    <div class="flexbet">
+                                        <div>网元</div>
+                                        <div>122,344（户）</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="topBorder">
+                            <div class="block-title green">
+                                <div class="flexbet">
+                                    <div>固网业务拆机</div>
+                                    <div><span>122,344.21</span>（户）</div>
+                                </div>
+                            </div>
+                            <div class="block-cont green">
+                                <div class="flex">
+                                    <div class="flexbet">
+                                        <div>固话</div>
+                                        <div>122,344（户）</div>
+                                    </div>
+                                    <div class="flexbet">
+                                        <div>FTTH</div>
+                                        <div>122,344（户）</div>
+                                    </div>
+                                </div>
+                                <div class="flex">
+                                    <div class="flexbet">
+                                        <div>宽带专线</div>
+                                        <div>122,344（户）</div>
+                                    </div>
+                                    <div class="flexbet">
+                                        <div>网元</div>
+                                        <div>122,344（户）</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
         </section>
         <!-- 弹出层 -->
         <el-dialog :title="dialogTitle" :visible.sync="isDialogShow" width="80%">
-            <component v-if="isDialogShow" :is="dialogCompent"></component>
+            <component v-if="isDialogShow" :is="dialogCompent" :head-call="headCall" :send-params="thirdParams">
+            </component>
         </el-dialog>
         <!-- 网管大厦 -->
         <script type="x-template" id="building">
@@ -314,7 +350,7 @@
                   </div>
                   <div class="col_2">
                       <div class="rt_content">
-                          <div class="imgBox">
+                          <div class="imgBox" @click="goDetail">
                               <div></div>
                           </div>
                           <div class="rt_line"></div>
@@ -356,10 +392,147 @@
               
           </div>
       </script>
+      <!-- 月收入 -->
+      <script type="x-template" id="monthIncome">
+          	<div>
+               
+                <div class='dia_header'>
+                    <div class="left">
+                        <div>
+                            <span class="nstration mr10">账期选择:</span>
+                            <el-date-picker v-model="value1" type="date" placeholder="选择日期" size="mini" style="width:150px;">
+                            </el-date-picker>
+                        </div>
+                        <div>
+                            <span class="nstration mr10">分公司:</span>
+                            <el-select v-model="value" placeholder="请选择" style="margin-right:20px" style="width:150px;"
+                                size="mini">
+                                <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
+                                </el-option>
+                            </el-select>
+                        </div>
+                        <div>
+                            <span class="nstration mr10">市场类型:</span>
+                            <el-select v-model="value" placeholder="请选择" style="margin-right:20px" style="width:150px;"
+                                size="mini">
+                                <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">'+
+                                </el-option>
+                            </el-select>
+                        </div>
+                        <div>
+                            <span class="nstration mr10">业务类型:</span>
+                            <el-select v-model="value" placeholder="请选择" style="margin-right:20px" style="width:150px;"
+                                size="mini">
+                                <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
+                                </el-option>
+                            </el-select>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <img src="./resources/images/export-icon.png" alt="">
+                        <span class="nstration bottom">收入清单</span>
+                    </div>
+                </div>
+                <div ref='echartsRef' style='height:400px'></div>
+	        </div>
+      </script>
+      <!-- 客户数 -->
+      <script type="x-template" id="customer">
+        <div>
+          <div class='dia_header'>
+              <div class="left">
+                  <div>
+                      <span class="nstration mr10">账期选择:</span>
+                      <el-date-picker v-model="value1" type="date" placeholder="选择日期" size="mini" style="width:150px;">
+                      </el-date-picker>
+                  </div>
+                  <div>
+                      <span class="nstration mr10">分公司:</span>
+                      <el-select v-model="value" placeholder="请选择" style="margin-right:20px" style="width:150px;"
+                          size="mini">
+                          <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
+                          </el-option>
+                      </el-select>
+                  </div>
+                  <div>
+                      <span class="nstration mr10">市场类型:</span>
+                      <el-select v-model="value" placeholder="请选择" style="margin-right:20px" style="width:150px;"
+                          size="mini">
+                          <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">'+
+                          </el-option>
+                      </el-select>
+                  </div>
+                  <div>
+                      <span class="nstration mr10">业务类型:</span>
+                      <el-select v-model="value" placeholder="请选择" style="margin-right:20px" style="width:150px;"
+                          size="mini">
+                          <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
+                          </el-option>
+                      </el-select>
+                  </div>
+              </div>
+              <div class="right">
+                  <img src="./resources/images/export-icon.png" alt="">
+                  <span class="nstration bottom">收入清单</span>
+              </div>
+          </div>
+          <div ref='echartsRef' style='height:400px'></div>
+      </div>
+    </script>
+      <!-- 业务 -->
+      <script type="x-template" id="business">
+        <div>
+        <ul class="dia-tab">
+            <li :class="{active:isActive === '1'}"><span>发展同比</span></li>
+            <li><span>发展环比</span></li>
+            <li><span>拆机同比</span></li>
+            <li><span>拆机环比</span></li>
+        </ul>
+          <div class='dia_header'>
+              <div class="left">
+                  <div>
+                      <span class="nstration mr10">账期选择:</span>
+                      <el-date-picker v-model="value1" type="date" placeholder="选择日期" size="mini" style="width:150px;">
+                      </el-date-picker>
+                  </div>
+                  <div>
+                      <span class="nstration mr10">分公司:</span>
+                      <el-select v-model="value" placeholder="请选择" style="margin-right:20px" style="width:150px;"
+                          size="mini">
+                          <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
+                          </el-option>
+                      </el-select>
+                  </div>
+                  <div>
+                      <span class="nstration mr10">市场类型:</span>
+                      <el-select v-model="value" placeholder="请选择" style="margin-right:20px" style="width:150px;"
+                          size="mini">
+                          <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">'+
+                          </el-option>
+                      </el-select>
+                  </div>
+                  <div>
+                      <span class="nstration mr10">业务类型:</span>
+                      <el-select v-model="value" placeholder="请选择" style="margin-right:20px" style="width:150px;"
+                          size="mini">
+                          <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
+                          </el-option>
+                      </el-select>
+                  </div>
+              </div>
+              <div class="right">
+                  <img src="./resources/images/export-icon.png" alt="">
+                  <span class="nstration bottom">收入清单</span>
+              </div>
+          </div>
+          <div ref='echartsRef' style='height:400px'></div>
+      </div>
+    </script>
     </div>
 </body>
 <script type="text/javascript" src="./resources/js/jquery-1.11.3.min.js"></script>
 <script type="text/javascript" src="./resources/js/vue.min.js"></script>
+<!-- <script src="./resources/js/vue.js"></script> -->
 <script type="text/javascript" src="./resources/js/elementUI.js"></script>
 <script src="./resources/js/echarts-4.x.js"></script>
 <script src="./resources/js/allChild.js"></script>
@@ -369,86 +542,113 @@
         el: '#pageContainer',
         data() {
             return {
-                date:"",
-                isDialogShow:true,
-                dialogTitle: '月收入统计',
-                // dialogCompent: "bar-chart",
+                date: "",
+                isDialogShow: false,
+                dialogTitle: '',
                 dialogCompent: "building",
+                thirdParams: "", //二级传至三级页面参数
             }
         },
-        method: {
-          drawGaugeChart(){
-            let gaugeChart = echarts.init(document.getElementById('gaugeChart'));
-            let option =  {
-              backgroundColor: '#1b1b1b',
-              series : [
-                  {
-                      name:'速度',
-                      type:'gauge',
-                      min:0,
-                      max:220,
-                      startAngle:180,
-                      endAngle:0,
-                      splitNumber:11,
-                      radius: '50%',
-                      axisLine: {            // 坐标轴线
-                          lineStyle: {       // 属性lineStyle控制线条样式
-                              color: [[0.09, 'lime'],[0.82, '#1e90ff'],[1, '#ff4500']],
-                              width: 3,
-                              shadowColor : '#fff', //默认透明
-                              shadowBlur: 10
-                          }
-                      },
-                      axisLabel: {            // 坐标轴小标记
-                          textStyle: {       // 属性lineStyle控制线条样式
-                              fontWeight: 'bolder',
-                              color: '#fff',
-                              shadowColor : '#fff', //默认透明
-                              shadowBlur: 10
-                          }
-                      },
-                      axisTick: {            // 坐标轴小标记
-                          length :15,        // 属性length控制线长
-                          lineStyle: {       // 属性lineStyle控制线条样式
-                              color: 'auto',
-                              shadowColor : '#fff', //默认透明
-                              shadowBlur: 10
-                          }
-                      },
-                      splitLine: {           // 分隔线
-                          length :25,         // 属性length控制线长
-                          lineStyle: {       // 属性lineStyle（详见lineStyle）控制线条样式
-                              width:3,
-                              color: '#fff',
-                              shadowColor : '#fff', //默认透明
-                              shadowBlur: 10
-                          }
-                      },
-                      pointer: {           // 分隔线
-                          shadowColor : '#fff', //默认透明
-                          shadowBlur: 5
-                      },
-                      data:[{value: 40, name: ''}]
-                  }
-              ]
-            };
-            gaugeChart.clear();
-            gaugeChart.setOption(option);
-          }
+        components:{
+            'building':building,
+            "monthIncome":monthIncome,
+            customer:customer,
+            business:business
+
+        },
+        methods: {
+            //子组件传递过来的参数
+            headCall(param, thirdParams) {
+                this.isDialogShow = true;
+                if (!param.dialogTitle) {
+                    this.isDialogShow = false;
+                } else {
+                    this.dialogCompent = param.dialogCompent;
+                    this.dialogTitle = param.dialogTitle;
+                }
+                if (thirdParams) {
+                    this.thirdParams = thirdParams;
+                }
+            },
+            sendMsg: function (title,compent) {
+                const param = {
+                    dialogCompent: compent,
+                    dialogTitle: title
+                };
+                this.headCall(param); //第一个参数是父组件中v-on绑定的自定义回调方法，第二个参数为传递的参数
+            },
+            drawGaugeChart() {
+                let gaugeChart = echarts.init(document.getElementById('gaugeChart'));
+                let option = {
+                    backgroundColor: '#1b1b1b',
+                    series: [
+                        {
+                            name: '速度',
+                            type: 'gauge',
+                            min: 0,
+                            max: 220,
+                            startAngle: 180,
+                            endAngle: 0,
+                            splitNumber: 11,
+                            radius: '50%',
+                            axisLine: {            // 坐标轴线
+                                lineStyle: {       // 属性lineStyle控制线条样式
+                                    color: [[0.09, 'lime'], [0.82, '#1e90ff'], [1, '#ff4500']],
+                                    width: 3,
+                                    shadowColor: '#fff', //默认透明
+                                    shadowBlur: 10
+                                }
+                            },
+                            axisLabel: {            // 坐标轴小标记
+                                textStyle: {       // 属性lineStyle控制线条样式
+                                    fontWeight: 'bolder',
+                                    color: '#fff',
+                                    shadowColor: '#fff', //默认透明
+                                    shadowBlur: 10
+                                }
+                            },
+                            axisTick: {            // 坐标轴小标记
+                                length: 15,        // 属性length控制线长
+                                lineStyle: {       // 属性lineStyle控制线条样式
+                                    color: 'auto',
+                                    shadowColor: '#fff', //默认透明
+                                    shadowBlur: 10
+                                }
+                            },
+                            splitLine: {           // 分隔线
+                                length: 25,         // 属性length控制线长
+                                lineStyle: {       // 属性lineStyle（详见lineStyle）控制线条样式
+                                    width: 3,
+                                    color: '#fff',
+                                    shadowColor: '#fff', //默认透明
+                                    shadowBlur: 10
+                                }
+                            },
+                            pointer: {           // 分隔线
+                                shadowColor: '#fff', //默认透明
+                                shadowBlur: 5
+                            },
+                            data: [{ value: 40, name: '' }]
+                        }
+                    ]
+                };
+                gaugeChart.clear();
+                gaugeChart.setOption(option);
+            }
         },
         created() {
 
         },
         mounted() {
-          let _this = this; // 声明一个变量指向Vue实例this，保证作用域一致
-          this.timer = setInterval(() => {
-            _this.date = new Date().toLocaleTimeString(); // 修改数据date
-          }, 1000)
+            let _this = this; // 声明一个变量指向Vue实例this，保证作用域一致
+            this.timer = setInterval(() => {
+                _this.date = new Date().toLocaleTimeString(); // 修改数据date
+            }, 1000)
         },
         beforeDestroy() {
-          if (this.timer) {
-            clearInterval(this.timer); // 在Vue实例销毁前，清除我们的定时器
-          }
+            if (this.timer) {
+                clearInterval(this.timer); // 在Vue实例销毁前，清除我们的定时器
+            }
         }
     });
 </script>
