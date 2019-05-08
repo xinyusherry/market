@@ -310,6 +310,7 @@ li {
 .el-dialog {
   background: url(../images/dialog_bg.png) center center no-repeat / 100% 100%;
   padding: 50px 40px 20px;
+  margin-top: 10vh !important;
 }
 .el-dialog__headerbtn {
   top: 14px;
