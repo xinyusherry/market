@@ -274,6 +274,33 @@ li{
               }
             }
           }
+          .cont-title{
+            color: @date-blue;
+            padding: 8px 20px;
+            height: 30px;
+          }
+          .total{
+            height: ~"calc(100% - 30px)";
+            .flexcc;
+            .number{
+              width: 300px;
+              height: 100%;
+              background: url("../images/number-bg.png")no-repeat center / contain;
+              position: relative;
+              display: flex;
+              align-items: center;
+              span{
+                font-size: 40px;
+                letter-spacing: 25px;
+                margin-left: 32px;
+              }
+              .unit{
+                position: absolute;
+                right: 20px;
+                bottom: 20px;
+              }
+            }
+          }
         }
       }
       .lf-top-cont{
