@@ -3,6 +3,9 @@
   margin: 0;
   padding: 0;
 }
+[v-cloak] {
+  display: none;
+}
 html,
 body,
 #pageContainer {
@@ -100,6 +103,9 @@ li {
 }
 #pageContainer header > div .icon.export {
   background: url("../images/export-icon.png") no-repeat center / 70%;
+}
+#pageContainer header > div .icon.download {
+  background: url("../images/download-icon.png") no-repeat center / 70%;
 }
 #pageContainer section {
   height: 90%;
@@ -304,6 +310,7 @@ li {
 .el-dialog {
   background: url(../images/dialog_bg.png) center center no-repeat / 100% 100%;
   padding: 50px 40px 20px;
+  margin-top: 10vh !important;
 }
 .el-dialog__headerbtn {
   top: 14px;

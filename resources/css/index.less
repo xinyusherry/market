@@ -3,6 +3,7 @@
   margin: 0;
   padding: 0;
 }
+[v-cloak]{display: none;}
 @light-blue:#6AFFFF;
 @date-blue:#2C7DE0;
 @blue:#0FBBF3;
@@ -106,6 +107,9 @@ li{
         }
         &.export{
           background: url("../images/export-icon.png")no-repeat center / 70%;
+        }
+        &.download{
+          background: url("../images/download-icon.png")no-repeat center / 70%;
         }
       }
     }
@@ -311,6 +315,7 @@ li{
 .el-dialog{
   background: url(../images/dialog_bg.png) center center no-repeat / 100% 100%;
   padding: 50px 40px 20px;
+  margin-top: 10vh !important;
 }
 .el-dialog__headerbtn {
   top: 14px;
