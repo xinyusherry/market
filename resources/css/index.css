@@ -3,6 +3,9 @@
   margin: 0;
   padding: 0;
 }
+[v-cloak] {
+  display: none;
+}
 html,
 body,
 #pageContainer {
@@ -100,6 +103,9 @@ li {
 }
 #pageContainer header > div .icon.export {
   background: url("../images/export-icon.png") no-repeat center / 70%;
+}
+#pageContainer header > div .icon.download {
+  background: url("../images/download-icon.png") no-repeat center / 70%;
 }
 #pageContainer section {
   height: 90%;
