@@ -431,7 +431,7 @@ li {
 }
 input.el-input__inner {
   background: transparent !important;
-  border-color: #226888!important;
+  border-color: #226888 !important;
   font-size: 16px;
   color: #ffffff;
 }
@@ -722,4 +722,33 @@ input.el-input__inner {
   align-items: center;
   padding: 0px 10px;
   margin-bottom: 8px;
+}
+.buildingSed {
+  margin-left: 60px;
+  height: 620px;
+  padding-bottom: 20px;
+}
+.buildingSed .sedTop {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding-right: 20px;
+}
+.buildingSed .goBack {
+  cursor: pointer;
+}
+.buildingSed .sedRight {
+  display: flex;
+  align-items: center;
+}
+.buildingSed .sedRight > img {
+  width: 25px;
+  margin-right: 9px;
+}
+.buildingSed .list {
+  margin-left: 70px;
+}
+.buildingSed .list > li {
+  display: flex;
+  flex-direction: row;
 }

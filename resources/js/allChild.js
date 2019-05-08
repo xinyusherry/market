@@ -1,4 +1,4 @@
-
+// 月收入
 var monthIncome = {
 	props: ['sendParams'],
 	data: function() {
@@ -203,8 +203,8 @@ var building = {
 	methods: {
     goDetail(){
       const param = {
-        dialogCompent: "monthIncome",
-        dialogTitle: "月收入总计"
+        dialogCompent: "buildingSed",
+        dialogTitle: "天津市网管大厦"
       };
       this.headCall(param)
     },
@@ -700,3 +700,26 @@ var business = {
 	},
   template:"#business"
 }
+var buildingSed = {
+  template: "#buildingSed",
+  props: ['headCall'],
+  data() {
+    return {
+      lists: [
+        {floor:"8F",info:[{name:"分光器",num:5},{name:"分光器",num:5},{name:"分光器",num:5},{name:"分光器",num:5},{name:"分光器",num:5}]},
+        {floor:"7F",info:[]},
+      ]
+    };
+},
+	mounted: function() {
+	},
+	methods: {
+    goBack(){
+      const param = {
+        dialogCompent: "building",
+        dialogTitle: "天津市网管大厦"
+      };
+      this.headCall(param)
+    }
+	},
+};

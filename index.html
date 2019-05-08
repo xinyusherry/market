@@ -210,7 +210,7 @@
             </component>
         </el-dialog>
         <!-- 网管大厦 -->
-        <script type="x-template" id="building">
+        <script type="text/x-template" id="building">
           <div style="margin-left:60px">
               <div class="wg-right-box">
                   <div class="wg-right">
@@ -407,7 +407,7 @@
           </div>
       </script>
       <!-- 月收入 -->
-      <script type="x-template" id="monthIncome">
+      <script type="text/x-template" id="monthIncome">
           	<div>
                
                 <div class='dia_header'>
@@ -429,7 +429,7 @@
                             <span class="nstration mr10">市场类型:</span>
                             <el-select v-model="value" placeholder="请选择" style="margin-right:20px" style="width:150px;"
                                 size="mini">
-                                <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">'+
+                                <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
                                 </el-option>
                             </el-select>
                         </div>
@@ -451,7 +451,7 @@
 	        </div>
       </script>
       <!-- 客户数 -->
-      <script type="x-template" id="customer">
+      <script type="text/x-template" id="customer">
         <div>
           <div class='dia_header'>
               <div class="left">
@@ -472,7 +472,7 @@
                       <span class="nstration mr10">市场类型:</span>
                       <el-select v-model="value" placeholder="请选择" style="margin-right:20px" style="width:150px;"
                           size="mini">
-                          <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">'+
+                          <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
                           </el-option>
                       </el-select>
                   </div>
@@ -494,7 +494,7 @@
       </div>
     </script>
       <!-- 业务 -->
-      <script type="x-template" id="business">
+      <script type="text/x-template" id="business">
         <div>
         <ul class="dia-tab">
             <li :class="{active:isActive === '1'}"><span>发展同比</span></li>
@@ -521,7 +521,7 @@
                       <span class="nstration mr10">市场类型:</span>
                       <el-select v-model="value" placeholder="请选择" style="margin-right:20px" style="width:150px;"
                           size="mini">
-                          <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">'+
+                          <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
                           </el-option>
                       </el-select>
                   </div>
@@ -542,11 +542,33 @@
           <div ref='echartsRef' style='height:400px'></div>
       </div>
     </script>
+    <!-- 网管大厦二级 -->
+    <script type="text/x-template" id="buildingSed">
+        <div class="buildingSed">
+            <div class="sedTop">
+                <img src="./resources/images/sed_back.png" alt="" class="goBack" @click="goBack">
+                <div class="sedRight">
+                    <img src="./resources/images/export-icon.png" alt="">
+                    <span class="nstration bottom">清单明细下载</span>
+                </div>
+            </div>
+          
+        </div>
+    </script>
     </div>
+      <!-- <ul class="list">
+                <li v-for="item in lists">
+                    <div>
+                        <span>{{item.floor}}</span>
+                    </div>
+                    <div><img src="./resources/images/sed_top.png" alt=""></div>
+                    <div v-if="item.list.length">3</div>
+                </li>
+            </ul> -->
 </body>
 <script type="text/javascript" src="./resources/js/jquery-1.11.3.min.js"></script>
-<script type="text/javascript" src="./resources/js/vue.min.js"></script>
-<!-- <script src="./resources/js/vue.js"></script> -->
+<!-- <script type="text/javascript" src="./resources/js/vue.min.js"></script> -->
+<script src="./resources/js/vue.js"></script>
 <script type="text/javascript" src="./resources/js/elementUI.js"></script>
 <script src="./resources/js/echarts-4.x.js"></script>
 <script src="./resources/js/allChild.js"></script>
@@ -559,16 +581,16 @@
                 date: "",
                 isDialogShow: false,
                 dialogTitle: '',
-                dialogCompent: "building",
+                dialogCompent: "",
                 thirdParams: "", //二级传至三级页面参数
             }
         },
         components:{
             'building':building,
             "monthIncome":monthIncome,
-            customer:customer,
-            business:business
-
+            "customer":customer,
+            "business":business,
+            "buildingSed":buildingSed
         },
         methods: {
             //子组件传递过来的参数
