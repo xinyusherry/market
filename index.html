@@ -542,29 +542,74 @@
           <div ref='echartsRef' style='height:400px'></div>
       </div>
     </script>
-    <!-- 网管大厦二级 -->
-    <script type="text/x-template" id="buildingSed">
-        <div class="buildingSed">
-            <div class="sedTop">
-                <img src="./resources/images/sed_back.png" alt="" class="goBack" @click="goBack">
-                <div class="sedRight">
-                    <img src="./resources/images/export-icon.png" alt="">
-                    <span class="nstration bottom">清单明细下载</span>
-                </div>
-            </div>
-            <ul class="list">
-                <li v-for="(item,index) in lists" :key="index">
-                    <div>
-                        <span>{{item.floor}}</span>
-                    </div>
-                    <div><img src="./resources/images/sed_top.png" alt=""></div>
-                    <div v-if="item.list.length">3</div>
-                </li>
-            </ul>
-        </div>
-    </script>
+
     </div>
 </body>
+<!-- 网管大厦二级 -->
+<script type="text/x-template" id="buildingSed">
+    <div class="buildingSed">
+        <div class="sedTop">
+            <img src="./resources/images/sed_back.png" alt="" class="goBack" @click="goBack">
+            <div class="sedRight">
+                <img src="./resources/images/export-icon.png" alt="">
+                <span class="sed_download bottom">清单明细下载</span>
+            </div>
+        </div>
+        <ul class="list">
+            <li v-for="(item,index) in lists" :key="index">
+                <div :class="item.split ? 'fir_div active' : 'fir_div' ">
+                    <div>
+                        <img v-if="item.split" src="./resources/images/sed_up.png" alt="">
+                        <img v-if="item.split===false" src="./resources/images/sed_down.png" alt="">
+                        <span v-if="item.split" class="sed_up ml10">地上</span>
+                        <span v-if="item.split===false" class="sed_down ml10">地下</span>
+                    </div>
+                    <div :class="item.info.length ? 'fff active' : 'fff' ">{{item.floor}}</div>
+                </div>
+                <div>
+                    <img v-if="item.up" src="./resources/images/sed_top.png" alt="">
+                    <img v-if="item.up===false" src="./resources/images/sed_bottom.png" alt="" class="sed_img">
+                </div>
+                <div class="tipDiv" v-if="item.info.length">
+                    <img src="./resources/images/sed_line.png" alt="">
+                    <img v-if="item.up" src="./resources/images/sed_info.png" alt="" class="infoImg">
+                    <img v-if="item.up===false" src="./resources/images/sed_list.png" alt="" class="infoImg">
+                    <!-- 地上 -->
+                    <div class="info_bg1" v-if="item.up">
+                        <div class="sed_up info_tit">{{item.floor}}-资源汇总</div>
+                        <ul class="info_list clearfix">
+                            <li v-for="(obj,i) in item.info" :key="i">
+                                <div>
+                                    <div>
+                                        <span class="spot"></span>
+                                        <span class="sed_up">{{obj.name}}</span>
+                                    </div>
+                                    <div class="sed_up">{{obj.num}} 个</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- 地下 -->
+                    <div class="info_bg2" v-if="item.up===false">
+                            <div class="sed_up info_tit">{{item.floor}}-资源汇总</div>
+                            <ul class="info_list clearfix">
+                                <li v-for="(obj,i) in item.info" :key="i">
+                                    <div>
+                                        <div>
+                                            <span class="spot"></span>
+                                            <span class="sed_up">{{obj.name}}</span>
+                                        </div>
+                                        <div class="sed_up">{{obj.num}} 个</div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</script>
+
 <script type="text/javascript" src="./resources/js/jquery-1.11.3.min.js"></script>
 <!-- <script type="text/javascript" src="./resources/js/vue.min.js"></script> -->
 <script src="./resources/js/vue.js"></script>

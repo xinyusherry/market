@@ -706,8 +706,15 @@ var buildingSed = {
   data() {
     return {
       lists: [
-        {floor:"8F",info:[{name:"分光器",num:5},{name:"分光器",num:5},{name:"分光器",num:5},{name:"分光器",num:5},{name:"分光器",num:5}]},
-        {floor:"7F",info:[]},
+        {floor:"8F",info:[],up:true},
+        {floor:"7F",info:[{name:"分光器",num:5},{name:"占用端口",num:5},{name:"FTTH端口",num:5},{name:"楼层终端盒",num:5},{name:"用户终端盒",num:5}],up:true},
+        {floor:"6F",info:[],up:true},
+        {floor:"5F",info:[],up:true},
+        {floor:"4F",info:[],up:true},
+        {floor:"3F",info:[],up:true},
+        {floor:"2F",info:[],up:true},
+        {floor:"1F",info:[],split:true,up:true},
+        {floor:"B1",info:[{name:"楼内光交",num:5},{name:"楼外光交",num:5}],up:false,split:false}
       ]
     };
 },

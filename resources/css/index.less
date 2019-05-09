@@ -459,6 +459,13 @@ input.el-input__inner {
     cursor: pointer;
   }
 }
+.sed_download{
+  color: #34a5b1;
+  &.bottom{
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
 .mr10{
   margin-right: 10px;
 }
@@ -719,9 +726,10 @@ input.el-input__inner {
 }
 
 .buildingSed{
-  margin-left:60px;
-  height:620px;
-  padding-bottom: 20px;
+  margin-left: 60px;
+  height: 620px;
+  margin-bottom: 40px;
+  overflow: auto;
   .sedTop{
     display: flex;
     justify-content: space-between;
@@ -744,6 +752,101 @@ input.el-input__inner {
     >li{
       display: flex;
       flex-direction: row;
+      margin-bottom: -12px;
     }
+    .fir_div{
+      display: flex;
+      justify-content: space-between;
+      width: 130px;
+      padding: 20px 14px;
+      &.active{
+        border-bottom: 1px dashed #67384c;
+      }
+      >div{
+        display: flex;
+        align-items: center;
+      }
+    }
+    .sed_up{
+      color: #34a5b1;
+    }
+    .sed_down{
+      color: #2c84c4;
+    }
+    .fff{
+      color: #ffffff;
+      padding: 0 10px;
+      &.active{
+        color: #34a5b1;
+        border-bottom: 1px transparent solid;
+        border-image: linear-gradient(to right, #2d5f75, #23b7cb) 1 10;
+      }
+    }
+    .ml10{
+      margin-left: 10px;
+    }
+    .tipDiv{
+      display: flex;
+      align-items: center;
+      margin-left: 10px;
+      position: relative;
+    }
+    .infoImg{
+      position: absolute;
+      left: 29px;
+      top: 12px;
+    }
+    .infoImg2{
+      position: absolute;
+      left: 29px;
+      top: 25px;
+    }
+    .sed_img{
+      height: 65px;
+      width: 221px;
+    }
+    .info_tit{
+      height: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .info_bg1{
+      background: url(../images/sed_info_bg1.png) left center no-repeat / 100% 100%;
+      width: 268px;
+      height: 129px;
+      position: absolute;
+      left: 84px;
+      z-index: 1;
+      &:hover{
+        z-index:2;
+      }
+    }
+    .info_bg2{
+      background: url(../images/sed_info_bg2.png) left center no-repeat / 100% 100%;
+      width: 268px;
+      height: 71px;
+      position: absolute;
+      left: 84px;
+      z-index: 1;
+      &:hover{
+        z-index:2;
+      }
+    }
+    .info_list{
+      >li{
+        float: left;
+        width: 50%;
+        >div{
+          display: flex;
+          flex: 1;
+          justify-content: space-between;
+          align-items: center;
+          padding: 5px;
+          font-size: 12px;
+        }
+      }
+    }
+
   }
 }
