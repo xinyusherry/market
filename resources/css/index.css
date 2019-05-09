@@ -61,7 +61,7 @@ li {
   flex: 1 1 31%;
   margin-left: 1%;
   justify-content: center;
-  color: #6AFFFF;
+  color: #2AD6E0;
 }
 #pageContainer header > div:nth-child(2) {
   flex: 1 1 36%;
@@ -76,7 +76,7 @@ li {
   flex: 1 1 31%;
   margin-right: 1%;
   justify-content: center;
-  color: #6AFFFF;
+  color: #2AD6E0;
 }
 #pageContainer header > div:nth-child(3) .flex-item {
   text-align: center;
@@ -123,16 +123,18 @@ li {
   display: flex;
 }
 #pageContainer section > div {
-  flex: 1 1 32%;
   height: 100%;
 }
 #pageContainer section > div:first-child {
+  flex: 1 1 31%;
   margin-left: 1%;
 }
 #pageContainer section > div:nth-child(2) {
+  flex: 1 1 34%;
   margin: 0 1%;
 }
 #pageContainer section > div:nth-child(3) {
+  flex: 1 1 31%;
   margin-right: 1%;
 }
 #pageContainer section > div.map {
@@ -157,7 +159,7 @@ li {
 }
 #pageContainer section > div .lf-mid {
   margin-top: 2%;
-  height: 38%;
+  height: 39%;
   overflow: hidden;
 }
 #pageContainer section > div .lf-bot,
@@ -184,7 +186,7 @@ li {
   color: #2C7DE0;
 }
 #pageContainer section > div .titleDiv span:first-child {
-  color: #6AFFFF;
+  color: #2AD6E0;
 }
 #pageContainer section > div .titleDiv span:first-child:before {
   content: '';
@@ -314,6 +316,34 @@ li {
   right: 20px;
   bottom: 20px;
 }
+#pageContainer section > div .titleCont > div .pie-tab {
+  width: 280px;
+  height: 22px;
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 15px 5px auto;
+}
+#pageContainer section > div .titleCont > div .pie-tab > li {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: skew(-30deg);
+  border: 1px solid #0FBBF3;
+  cursor: pointer;
+  padding: 2px;
+  font-size: 13px;
+  margin: 0 3px;
+  color: #0FBBF3;
+}
+#pageContainer section > div .titleCont > div .pie-tab > li.active {
+  color: #D9DF56;
+  background: linear-gradient(to right, #0B48B2, #052F6C);
+  border-color: transparent;
+}
+#pageContainer section > div .titleCont > div .pie-tab > li > span {
+  transform: skew(30deg);
+}
 #pageContainer section > div .lf-top-cont {
   height: 100%;
   justify-content: center;
@@ -333,7 +363,7 @@ li {
   font-size: 13px;
 }
 #pageContainer section > div .lf-top-cont .flex-item .flexCol p:first-child {
-  color: #6AFFFF;
+  color: #2AD6E0;
   font-weight: bold;
   font-size: 14px;
 }
@@ -442,7 +472,7 @@ li {
 }
 input.el-input__inner {
   background: transparent !important;
-  border-color: #226888 !important;
+  border-color: #226888!important;
   font-size: 16px;
   color: #ffffff;
 }
