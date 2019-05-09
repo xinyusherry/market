@@ -8,13 +8,16 @@
 @date-blue:#2C7DE0;
 @blue:#0FBBF3;
 @green:#6BDEB6;
-.clearfix(){
-  /*清浮动*/
-  &:after{
-    content: '';
-    display: block;
-    clear: both;
-  }
+.clearfix{
+	zoom: 1;
+}
+.clearfix:after {
+	content: "";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+	overflow: hidden;
 }
 html,body,#pageContainer{
   width: 100%;
