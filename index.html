@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./resources/css/elementUI.css">
     <link rel="stylesheet" href="./resources/css/index.css">
+    <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.14&key=d55d1a85ea061bc8c3d04da1cf2492d1"></script> 
     <title>聚类市场运营平台</title>
 </head>
 
@@ -120,7 +121,7 @@
                             </div>
                             <div class="block-cont flex">
                                 <div class="flex-item">
-                                    <div id="gaugeChart" style="width:100%;height:100%;">仪表盘</div>
+                                    <div id="gaugeChart" style="width:100%;height:100%;"></div>
                                 </div>
                                 <div class="flex-item numberBlock">
                                     <div><span>122,344.21</span>（户）</div>
@@ -130,12 +131,19 @@
                     </div>
                 </div>
             </div>
-            <div class="map" @click="sendMsg('天津市网管大厦','building')"></div>
+            <div class="mapContainer" @click="sendMsg('天津市网管大厦','building')"></div>
             <div class="section-rt">
                 <div class="rt-top">
                     <div class="titleDiv"><span>资源总览</span></div>
                     <div class="titleCont">
-                        <div>饼图</div>
+                        <div>
+                          <ul class="pie-tab">
+                            <li :class="{'active':totalTab==1}" @click="totalTab=1"><span>FTTH资源</span></li>
+                            <li :class="{'active':totalTab==2}" @click="totalTab=2"><span>专线资源</span></li>
+                            <li :class="{'active':totalTab==3}" @click="totalTab=3"><span>成绩设备</span></li>
+                          </ul>
+                          <div id="pieChartAll" style="width:100%;height:calc(100% - 32px);"></div>
+                        </div>
                     </div>
                 </div>
                 <div class="rt-bot" @click="sendMsg('当月发展业务总览','business')">
@@ -622,6 +630,7 @@
         data() {
             return {
                 date: "",
+                totalTab:1,
                 isDialogShow: false,
                 dialogTitle: '',
                 dialogCompent: "",
@@ -703,7 +712,64 @@
               window.addEventListener("resize", () => {
                 gaugeChart.resize();
               });
-            }
+            },
+            drawPieChart(id) {
+              let thisChart = echarts.init(document.getElementById(id));
+              thisChart.clear();
+              let option = {
+                tooltip: {
+                  trigger: "item",
+                  formatter: "{a} <br/>{b}: {c} ({d}%)"
+                },
+                title: [
+                  {
+                    left: "center",
+                    text: "",
+                    textStyle: {
+                      fontSize: 21,
+                      color: "#24FAFF"
+                    }
+                  }
+                ],
+                series: [
+                  {
+                    name: "产品结构",
+                    type: "pie",
+                    radius: ["25%", "60%"],
+                    avoidLabelOverlap: true,
+                    color: [
+                      "#9F57EB",
+                      "#4F7AED",
+                      "#5AE9A9",
+                      "#71D9F4",
+                      "#F2D464",
+                      "#EA9B58",
+                      "#ED544C"
+                    ],
+                    label: {
+                      normal: {
+                        show: true,
+                        position: "outside",
+                        formatter: "{b}\n{c}"
+                      },
+                      emphasis: {
+                        show: true
+                      }
+                    },
+                    labelLine: {
+                      normal: {
+                        show: true
+                      }
+                    },
+                    data: [{name:"xx",value:323},{name:"xx2",value:334},{name:"xx3",value:223},{name:"xx4",value:433},{name:"xx5",value:433},{name:"xx6",value:433},{name:"xx7",value:433}]
+                  }
+                ]
+              };
+              thisChart.setOption(option);
+              window.addEventListener("resize", () => {
+                thisChart.resize();
+              });
+            },
         },
         created() {
           
@@ -714,6 +780,12 @@
             _this.date = new Date().toLocaleTimeString(); // 修改数据date
           }, 1000)
           this.drawGaugeChart();
+          this.drawPieChart('pieChartAll');
+          var map = new AMap.Map('mapContainer', {
+              zoom:11,//级别
+              center: [116.397428, 39.90923],//中心点坐标
+              viewMode:'3D'//使用3D视图
+          });
         },
         beforeDestroy() {
             if (this.timer) {
