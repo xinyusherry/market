@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="./resources/css/elementUI.css">
     <link rel="stylesheet" href="./resources/css/index.css">
     <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.14&key=d55d1a85ea061bc8c3d04da1cf2492d1"></script> 
+    <script language="javascript" src="//webapi.amap.com/maps?v=1.4.14&key=d55d1a85ea061bc8c3d04da1cf2492d1&plugin=AMap.ControlBar"></script>
+    <script language="javascript" src="https://webapi.amap.com/maps?v=1.4.14&key=d55d1a85ea061bc8c3d04da1cf2492d1&plugin=Map3D,AMap.Scale"></script>
+    <script src="//webapi.amap.com/maps?v=1.4.14&key=d55d1a85ea061bc8c3d04da1cf2492d1&plugin=Map3D,AMap.DistrictSearch"></script>
     <title>聚类市场运营平台</title>
 </head>
 
@@ -131,7 +134,10 @@
                     </div>
                 </div>
             </div>
-            <div class="mapContainer" @click="sendMsg('天津市网管大厦','building')"></div>
+            <div class="map" style="padding:10px" @click="sendMsg('天津市网管大厦','building')">
+              <!-- <div class="borderImage"></div> -->
+              <div id="mapContainer" style="width:100%;height:100%;"></div>
+            </div>
             <div class="section-rt">
                 <div class="rt-top">
                     <div class="titleDiv"><span>资源总览</span></div>
@@ -784,7 +790,8 @@
           var map = new AMap.Map('mapContainer', {
               zoom:11,//级别
               center: [116.397428, 39.90923],//中心点坐标
-              viewMode:'3D'//使用3D视图
+              viewMode:'3D',//使用3D视图
+              mapStyle: 'amap://styles/darkblue',
           });
         },
         beforeDestroy() {
