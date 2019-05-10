@@ -472,7 +472,7 @@ li {
 }
 input.el-input__inner {
   background: transparent !important;
-  border-color: #226888!important;
+  border-color: #226888 !important;
   font-size: 16px;
   color: #ffffff;
 }
@@ -500,7 +500,7 @@ input.el-input__inner {
   margin-right: 9px;
 }
 .nstration {
-  color: #2c84c4;
+  color: #0FBBF3;
 }
 .nstration.bottom {
   text-decoration: underline;
@@ -531,7 +531,7 @@ input.el-input__inner {
   border: 1px solid #2E7e98;
   cursor: pointer;
   padding: 10px 0;
-  color: #2c84c4;
+  color: #0FBBF3;
 }
 .dia-tab > li.active {
   color: #ffffff;
@@ -892,4 +892,16 @@ input.el-input__inner {
   align-items: center;
   padding: 5px;
   font-size: 12px;
+}
+.lj {
+  margin-left: 134px;
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+}
+.lj .size28 {
+  font-size: 28px;
+}
+.lj .mr25 {
+  margin-right: 25px;
 }

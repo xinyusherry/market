@@ -41,7 +41,7 @@ var monthIncome = {
                   data: [100, 200, 300, 400, 500, 100, 200, 300, 400, 500, 100, 200, 300],
                   barWidth: 10, //柱子宽度
                   barGap: '10%', //柱子之间间距
-                  color: "#3AA3F3",
+                  color: "#30C8FD",
                   itemStyle: {
                       normal: {
                         barBorderRadius: [10, 10, 0, 0]
@@ -54,7 +54,7 @@ var monthIncome = {
                   data: [500, 400, 300, 200, 100, 500, 400, 300, 200, 100, 500, 400, 300],
                   barWidth: 10,
                   barGap: '10%',
-                  color: "#F868AF",
+                  color: "#ECC223",
                   itemStyle: {
                       normal: {
                         barBorderRadius: [10, 10, 0, 0]
@@ -301,13 +301,13 @@ var building = {
             radius: ["30%", "70%"],
             avoidLabelOverlap: true,
             color: [
-              "#F868AF",
-              "#01C6FD",
-              "#1749F9",
-              "#E5621C",
-              "#D70B20",
-              "#19C072",
-              "#F75C19"
+              "#9F57EB",
+              "#4F7AED",
+              "#5AE9A9",
+              "#71D9F4",
+              "#F2D464",
+              "#EA9B58",
+              "#ED544C"
             ],
             label: {
               normal: {
@@ -480,7 +480,7 @@ var customer = {
                         color: "#2FD6D0"
                       }
                     },
-                    name: "完成值(元)",
+                    name: "客户数(户)",
                     nameTextStyle: {
                       color: "#24FAFF",
                       fontSize: 14
@@ -496,10 +496,14 @@ var customer = {
                     data: [100, 200, 300, 400, 500, 100, 200, 300, 400, 500, 100, 200, 300],
                     barWidth: 10, //柱子宽度
                     barGap: '10%', //柱子之间间距
-                    color: "#3AA3F3",
+                    color: "#2CEB99",
                     itemStyle: {
                         normal: {
-                          barBorderRadius: [10, 10, 0, 0]
+                          barBorderRadius: [10, 10, 0, 0],
+                          label:{
+                            show: true, //开启显示
+								          	position: 'top', //在上方显示
+                          }
                         }
                       }
                   }]
@@ -539,7 +543,7 @@ var business = {
 	},
 	mounted: function() {
 		this.dom = echarts.init(this.$refs.echartsRef);
-    this.draw(true);
+    this.draw();
 	},
 	// watch: {
 	// 	echartsData: function(newl, old){
@@ -547,15 +551,15 @@ var business = {
 	// 	}
 	// },
 	methods: {
-		draw: function(isDubBar) {
-            var series = isDubBar? [
+		draw: function() {
+            var series = [
                 {
-                  name: "2018",
+                  name: "本月",
                   type: "bar",
                   data: [100, 200, 300, 400, 500, 100, 200, 300, 400, 500, 100, 200, 300],
                   barWidth: 10, //柱子宽度
                   barGap: '10%', //柱子之间间距
-                  color: "#3AA3F3",
+                  color: "#56E7AA",
                   itemStyle: {
                       normal: {
                         barBorderRadius: [10, 10, 0, 0]
@@ -563,32 +567,19 @@ var business = {
                     }
                 },
                 {
-                  name: "2019",
+                  name: "去年同期",
                   type: "bar",
                   data: [500, 400, 300, 200, 100, 500, 400, 300, 200, 100, 500, 400, 300],
                   barWidth: 10,
                   barGap: '10%',
-                  color: "#F868AF",
+                  color: "#EC504C",
                   itemStyle: {
                       normal: {
                         barBorderRadius: [10, 10, 0, 0]
                       }
                     }
                 }
-              ]:[
-                {
-                  name: "2018",
-                  type: "bar",
-                  data: [100, 200, 300, 400, 500, 100, 200, 300, 400, 500, 100, 200, 300],
-                  barWidth: 10, //柱子宽度
-                  barGap: '10%', //柱子之间间距
-                  color: "#3AA3F3",
-                  itemStyle: {
-                      normal: {
-                        barBorderRadius: [10, 10, 0, 0]
-                      }
-                    }
-                }];
+              ];
 			var option = {
                 tooltip: {
                   trigger: "axis",
@@ -607,7 +598,7 @@ var business = {
                   }
                 ],
                 legend: {
-                  data: ["2018", "2019"],
+                  data: ["本月", "去年同期"],
                   left: "85%",
                   top: 30,
                   textStyle: {
@@ -680,11 +671,11 @@ var business = {
                         color: "#2FD6D0"
                       }
                     },
-                    name: "完成值(元)",
-                    nameTextStyle: {
-                      color: "#24FAFF",
-                      fontSize: 14
-                    },
+                    // name: "完成值(元)",
+                    // nameTextStyle: {
+                    //   color: "#24FAFF",
+                    //   fontSize: 14
+                    // },
                     splitLine: {
                       show: false
                     }
