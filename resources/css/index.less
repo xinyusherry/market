@@ -139,6 +139,13 @@ li{
         margin: 0 0.5%;
         overflow: hidden;
         background: url("../images/map-bg.png")no-repeat center / 100% 100%;
+        #mapContainer{
+          width:100%;
+          height:100%;
+          clip-path: polygon(12.3% 0,100% 0,100% 100%,
+                    2% 100%,0 98%,0 9.4%);
+          border-bottom-right-radius: 11% !important;
+        }
       }
       .lf-top{
         height: 10%;
@@ -246,7 +253,8 @@ li{
             }
           }
           .block-cont{
-            height: ~"calc(100% - 30px)";
+            // height: ~"calc(100% - 30px)";
+            flex:1;
             display: flex;
             flex-direction: column;
             &.flex{

@@ -142,6 +142,12 @@ li {
   overflow: hidden;
   background: url("../images/map-bg.png") no-repeat center / 100% 100%;
 }
+#pageContainer section > div.map #mapContainer {
+  width: 100%;
+  height: 100%;
+  clip-path: polygon(12.3% 0, 100% 0, 100% 100%, 2% 100%, 0 98%, 0 9.4%);
+  border-bottom-right-radius: 11% !important;
+}
 #pageContainer section > div .lf-top {
   height: 10%;
   overflow: hidden;
@@ -251,7 +257,7 @@ li {
   font-size: 22px;
 }
 #pageContainer section > div .titleCont > div .block-cont {
-  height: calc(100% - 30px);
+  flex: 1;
   display: flex;
   flex-direction: column;
 }
@@ -472,7 +478,7 @@ li {
 }
 input.el-input__inner {
   background: transparent !important;
-  border-color: #226888 !important;
+  border-color: #226888!important;
   font-size: 16px;
   color: #ffffff;
 }

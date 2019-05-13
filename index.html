@@ -11,6 +11,7 @@
     <script language="javascript" src="//webapi.amap.com/maps?v=1.4.14&key=d55d1a85ea061bc8c3d04da1cf2492d1&plugin=AMap.ControlBar"></script>
     <script language="javascript" src="https://webapi.amap.com/maps?v=1.4.14&key=d55d1a85ea061bc8c3d04da1cf2492d1&plugin=Map3D,AMap.Scale"></script>
     <script src="//webapi.amap.com/maps?v=1.4.14&key=d55d1a85ea061bc8c3d04da1cf2492d1&plugin=Map3D,AMap.DistrictSearch"></script>
+    <script src="https://webapi.amap.com/loca?v=1.2.0&key=d55d1a85ea061bc8c3d04da1cf2492d1"></script>
     <title>聚类市场运营平台</title>
 </head>
 
@@ -88,7 +89,7 @@
                 <div class="lf-bot" @click="sendMsg('客户数总计','customer')">
                     <div class="titleDiv"><span>客户数总计</span><span>2019-03</span></div>
                     <div class="titleCont">
-                        <div>
+                        <div class="flexCol">
                             <div class="block-title blue">
                                 <div class="flexbet">
                                     <div>固网业务发展</div>
@@ -118,7 +119,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="topBorder">
+                        <div class="topBorder flexCol">
                             <div class="block-title blue">
                                 <div style="border:none">异网客户数总计</div>
                             </div>
@@ -134,9 +135,13 @@
                     </div>
                 </div>
             </div>
-            <div class="map" style="padding:10px" @click="sendMsg('天津市网管大厦','building')">
+            <div class="map" style="padding:5px" >
+              <!-- @click="sendMsg('天津市网管大厦','building')"> -->
               <!-- <div class="borderImage"></div> -->
-              <div id="mapContainer" style="width:100%;height:100%;"></div>
+              <div style="width:100%;height:100%;border-bottom-right-radius: 11%">
+                <div id="mapContainer"></div>
+              </div>
+                
             </div>
             <div class="section-rt">
                 <div class="rt-top">
@@ -155,7 +160,7 @@
                 <div class="rt-bot" @click="sendMsg('当月发展业务总览','business')">
                     <div class="titleDiv"><span>当月发展业务总览</span><span>2019-03</span></div>
                     <div class="titleCont">
-                        <div>
+                        <div class="flexCol">
                             <div class="block-title blue">
                                 <div class="flexbet">
                                     <div>固网业务发展</div>
@@ -185,7 +190,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="topBorder">
+                        <div class="topBorder flexCol">
                             <div class="block-title green">
                                 <div class="flexbet">
                                     <div>固网业务拆机</div>
@@ -798,6 +803,34 @@
               viewMode:'3D',//使用3D视图
               mapStyle: 'amap://styles/darkblue',
           });
+          const layer = new Loca.DistrictLayer({
+              map: map
+          });
+
+          layer.setData(heatdata, {
+              lnglat: 'lnglat',
+              value: 'count',
+          });
+
+          layer.setOptions({
+              style: {
+                  // 行政区 adcode
+                  adcode: 110000,
+                  // 热力聚合模式，count 为点数量加和
+                  mode: 'count',
+                  // 颜色范围
+                  color: [
+                    '#f0f9e8',
+                    '#bae4bc',
+                    '#7bccc4',
+                    '#43a2ca',
+                    '#0868ac',
+                  ]
+              }
+          });
+
+          // 渲染
+          layer.render();
         },
         beforeDestroy() {
             if (this.timer) {
