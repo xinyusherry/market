@@ -5,7 +5,7 @@ var monthIncome = {
 		return {
       dom: undefined,
       isActive:"1",
-      value1: "",
+      value1: "2016",
       options: [
           {
               value: "rh",
@@ -22,11 +22,11 @@ var monthIncome = {
       ],
       value: "rh"
 		}
-	},
+  },
 	mounted: function() {
 		this.dom = echarts.init(this.$refs.echartsRef);
     this.draw(true);
-	},
+  },
 	// watch: {
 	// 	echartsData: function(newl, old){
 	// 		this.draw(newl);
@@ -189,15 +189,31 @@ var monthIncome = {
 // 网管大厦
 var building = {
   template: "#building",
-  props: ['headCall'],
+  props: ['send-params'],
   data: function() {
 		return {
-      dom: undefined
+      dom:undefined,
+      basicData:{}
 		}
-	},
+  },
 	mounted: function() {
-    this.drawLine('monthLine',"#77b653");
-    this.drawLine('yearLine',"#a95bcc");
+    var self = this;
+    $.ajax({
+      type:"GET", 
+      url:"http://10.26.14.25:8087/microservice-ui/jlscMap/getDataForOneInfo",
+      data: {
+        JsonParam: JSON.stringify({buildCode:this.sendParams})
+      },
+      success:function(ret){
+        var data = JSON.parse(ret);
+        console.log(data);
+        if(data.resultData.length>0){
+          self.basicData = data.resultData[0];
+        }
+        self.drawLine('monthLine',"#77b653",data.resultNetwork.ACCT_MONTH,data.resultNetwork.OWE_FEE_M);
+        self.drawLine('yearLine',"#a95bcc",data.resultNetwork.ACCT_MONTH,data.resultNetwork.OWE_FEE_Y);
+      }
+    });
     this.drawPieChart('pieChart');
 	},
 	methods: {
@@ -208,7 +224,7 @@ var building = {
       };
       this.headCall(param)
     },
-    drawLine(id,color) {
+    drawLine(id,color,xAxis,valueArr) {
       var thisChart = echarts.init(document.getElementById(id));
       thisChart.setOption({
         grid: {
@@ -239,7 +255,7 @@ var building = {
           axisTick: {
             show: false
           },
-          data: [1,2,3,4,5]
+          data: xAxis
         },
         yAxis: {
           type: "value",
@@ -268,7 +284,7 @@ var building = {
               width: 4
             },
             color: color,
-            data: [20,30,25,40,35]
+            data: valueArr
           }
         ]
       });
@@ -296,7 +312,7 @@ var building = {
         ],
         series: [
           {
-            name: "产品结构",
+            name: "FTTH资源",
             type: "pie",
             radius: ["30%", "70%"],
             avoidLabelOverlap: true,
@@ -522,7 +538,7 @@ var business = {
 	data: function() {
 		return {
       dom: undefined,
-      isActive:"1",
+      isActive:'1',
       value1: "",
       options: [
           {
@@ -645,6 +661,7 @@ var business = {
                     },
                     axisLabel: {
                       show: true,
+                      interval:0,
                       textStyle: {
                         color: "#2FD6D0"
                       }

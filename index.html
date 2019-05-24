@@ -8,10 +8,8 @@
     <link rel="stylesheet" href="./resources/css/elementUI.css">
     <link rel="stylesheet" href="./resources/css/index.css">
     <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.14&key=d55d1a85ea061bc8c3d04da1cf2492d1"></script> 
-    <script language="javascript" src="//webapi.amap.com/maps?v=1.4.14&key=d55d1a85ea061bc8c3d04da1cf2492d1&plugin=AMap.ControlBar"></script>
-    <script language="javascript" src="https://webapi.amap.com/maps?v=1.4.14&key=d55d1a85ea061bc8c3d04da1cf2492d1&plugin=Map3D,AMap.Scale"></script>
-    <script src="//webapi.amap.com/maps?v=1.4.14&key=d55d1a85ea061bc8c3d04da1cf2492d1&plugin=Map3D,AMap.DistrictSearch"></script>
-    <script src="https://webapi.amap.com/loca?v=1.2.0&key=d55d1a85ea061bc8c3d04da1cf2492d1"></script>
+    <script language="javascript" src="https://webapi.amap.com/maps?v=1.4.14&key=d55d1a85ea061bc8c3d04da1cf2492d1&plugin=Map3D,AMap.Scale,AMap.ControlBar,AMap.DistrictLayer,AMap.DistrictSearch"></script>
+    <script src="https://webapi.amap.com/loca?key=d55d1a85ea061bc8c3d04da1cf2492d1&v=1.3.0"></script>
     <title>聚类市场运营平台</title>
 </head>
 
@@ -135,13 +133,39 @@
                     </div>
                 </div>
             </div>
-            <div class="map" style="padding:5px" >
-              <!-- @click="sendMsg('天津市网管大厦','building')"> -->
-              <!-- <div class="borderImage"></div> -->
-              <div style="width:100%;height:100%;border-bottom-right-radius: 11%">
-                <div id="mapContainer"></div>
-              </div>
-                
+            <div class="map" style="padding:5px">
+                <div id="mapContainer">
+                  <div class="mapCheckbox">
+                    <el-checkbox-group v-model="mapCheckbox">
+                      <el-checkbox label="1">商务楼宇（<i class="icon building"></i>）</el-checkbox>
+                      <el-checkbox label="2">工业园区（<i class="icon industry"></i>）</el-checkbox>
+                      <el-checkbox label="3">专业市场（<i class="icon market"></i>）</el-checkbox>
+                    </el-checkbox-group>
+                  </div>
+                  <div class="mapSearch" @mouseenter="showMapSearch = false" @mouseleave="hideSuggest">
+                    <transition name="el-fade-in">
+                      <div v-show="showMapSearch" class="searchIcon"></div>
+                    </transition>
+                    <transition name="draw">
+                      <div v-show="!showMapSearch">
+                          <el-autocomplete
+                          class="mapSearchInput"
+                          v-model="mapSearch"
+                          :fetch-suggestions="querySearch"
+                          placeholder="请输入名称"
+                          :trigger-on-focus="false"
+                          popper-class="mapSearchPop"
+                          @select="handleSelect"
+                        >
+                          <i
+                            class="el-icon-search el-input__icon"
+                            slot="suffix">
+                          </i>
+                        </el-autocomplete>
+                      </div>
+                    </transition>
+                  </div>
+                </div>
             </div>
             <div class="section-rt">
                 <div class="rt-top">
@@ -228,203 +252,7 @@
             <component v-if="isDialogShow" :is="dialogCompent" :head-call="headCall" :send-params="thirdParams">
             </component>
         </el-dialog>
-        <!-- 网管大厦 -->
-        <script type="text/x-template" id="building">
-          <div style="margin-left:60px">
-              <div class="wg-right-box">
-                  <div class="wg-right">
-                      <div>
-                          <img src="./resources/images/export-icon.png" alt="">
-                          <span class="nstration bottom">聚类市场基础信息明细下载</span>
-                      </div>
-                      <div style="margin:0">
-                          <img src="./resources/images/export-icon.png" alt="">
-                          <span class="nstration bottom">聚类市场业务信息明细下载</span>
-                      </div>
-                  </div>
-              </div>
-              <div class="header_bg">
-                  <div class="flex_col_2">
-                      <div class="center">
-                          <span class="baseInfo">基本信息</span>
-                          <span class="spot"></span>
-                          <span class="blueInfo">楼宇编码：</span>
-                          <span class="whiteInfo">SWLY0220228</span>
-                      </div>
-                      <div class="line"></div>
-                  </div>
-                  <div class="flex_col_1">
-                      <div class="center2">
-                          <span class="spot"></span>
-                          <span class="blueInfo">楼层数：</span>
-                          <span class="whiteInfo">27 &nbsp;层</span>
-                      </div>
-                      <div class="line"></div>
-                  </div>
-                  <div class="flex_col_1"> 
-                      <div class="center2">
-                          <span class="spot"></span>
-                          <span class="blueInfo">建筑面积：</span>
-                          <span class="whiteInfo">50397.29 &nbsp;㎡</span>
-                      </div>
-                      <div class="line"></div>
-                  </div>
-                  <div class="flex_col_3">
-                      <div class="center">
-                          <span class="spot ml15"></span>
-                          <span class="blueInfo">地址：</span>
-                          <span class="whiteInfo">天津市和平区新兴路27号</span>
-                      </div>
-                      <div class="line"></div>
-                  </div>
-              </div>
-
-              <div class="mainBox">
-                  <div class="col_1 left">
-                      <div class="col_top">
-                          <div class="tit">固网业务总览</div>
-                          <div class="out_div">
-                              <div>
-                                  <span class="blueInfo">月收入</span>
-                                  <span class="blueInfo size20">26,999.68</span>
-                                  <span class="blueInfo">(元)</span>
-                              </div>
-                              <div>
-                                  <span class="blueInfo">客户数</span>
-                                  <span class="blueInfo size20">95</span>
-                                  <span class="blueInfo">(户)</span>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="col_bottom">
-                          <div class="tit">固网欠费</div>
-                          <div class="bot_content">
-                              <div>
-                                  <span class="blueInfo">当月欠费</span>
-                                  <span class="blueInfo size20">26,999.68</span>
-                                  <span class="blueInfo">(万)</span>
-                              </div>
-                              <div class="lineChart" id="monthLine"></div>
-                              <div>
-                                  <span class="violet">当年累计欠费</span>
-                                  <span class="violet size20">26,999.68</span>
-                                  <span class="blueInfo">(万)</span>
-                              </div>
-                              <div class="lineChart" id="yearLine"></div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col_1 left">
-                      <div class="col_top">
-                          <div class="tit">创新业务总览</div>
-                          <div class="out_div">
-                              <div>
-                                  <span class="blueInfo">月收入</span>
-                                  <span class="blueInfo size20">26,999.68</span>
-                                  <span class="blueInfo">(元)</span>
-                              </div>
-                              <div>
-                                  <span class="blueInfo">客户数</span>
-                                  <span class="blueInfo size20">95</span>
-                                  <span class="blueInfo">(户)</span>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="col_bottom">
-                          <div class="tit">资源信息总览</div>
-                          <div class="bot_content">
-                              <ul class="myTab">
-                                  <li class="active">FTTH资源</li>
-                                  <li>专线资源</li>
-                                  <li>光缆</li>
-                                  <li>成端设备</li>
-                              </ul>
-                              <div style="height:170px" id="pieChart"></div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col_1">
-                      <div style="position: relative;">
-                          <div class="tit">资源信息</div>
-                      </div>
-                      <div class="col_1_top">
-                          <div  style="padding-top: 4px;">
-                              <span class="blueInfo">分光器</span>
-                              <span class="blueInfo">78 &nbsp;(个)</span>
-                          </div>
-                          <div style="margin-top: 30px;">
-                              <span class="blueInfo">FTTH端口</span>
-                              <span class="blueInfo">78 &nbsp;(个)</span>
-                          </div>
-                          <div style="margin-top: 30px;">
-                              <span class="blueInfo">占用端口</span>
-                              <span class="blueInfo">78 &nbsp;(个)</span>
-                          </div>
-                          <div style="margin-top: 34px;">
-                              <span class="blueInfo">楼层终端盒</span>
-                              <span class="blueInfo">78 &nbsp;(个)</span>
-                          </div>
-                          <div style="margin-top: 30px;">
-                              <span class="blueInfo">用户终端盒</span>
-                              <span class="blueInfo">78 &nbsp;(个)</span>
-                          </div>
-                      </div>
-
-                      <div class="col_1_top_2">
-                          <div  style="padding-top: 32px;">
-                              <span class="blueInfo">楼内光交箱</span>
-                              <span class="blueInfo">78 &nbsp;(个)</span>
-                          </div>
-                          <div style="margin-top: 30px;">
-                              <span class="blueInfo">楼外光交箱</span>
-                              <span class="blueInfo">78 &nbsp;(个)</span>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col_2">
-                      <div class="rt_content">
-                          <div class="imgBox" @click="goDetail">
-                              <div></div>
-                          </div>
-                          <div class="rt_line"></div>
-                          <ul class="rt_bottom">
-                              <li>
-                                  <div>
-                                      <span class="blueInfo">承包经理：</span>
-                                      <span class="blueInfo">张三</span>
-                                  </div>
-                                  <div>
-                                      <span class="blueInfo">联系方式：</span>
-                                      <span class="blueInfo">13888101010</span>
-                                  </div>
-                              </li>
-                              <li>
-                                  <div>
-                                      <span class="blueInfo">装维经理：</span>
-                                      <span class="blueInfo">张三</span>
-                                  </div>
-                                  <div>
-                                      <span class="blueInfo">联系方式：</span>
-                                      <span class="blueInfo">13888101010</span>
-                                  </div>
-                              </li>
-                              <li>
-                                  <div>
-                                      <span class="blueInfo">响应经理：</span>
-                                      <span class="blueInfo">张三</span>
-                                  </div>
-                                  <div>
-                                      <span class="blueInfo">联系方式：</span>
-                                      <span class="blueInfo">13888101010</span>
-                                  </div>
-                              </li>
-                          </ul>
-                      </div>
-                  </div>
-              </div>
-              
-          </div>
-      </script>
+        
       <!-- 月收入 -->
       <script type="text/x-template" id="monthIncome">
           	<div>
@@ -433,7 +261,8 @@
                     <div class="left">
                         <div>
                             <span class="nstration mr10">账期选择:</span>
-                            <el-date-picker v-model="value1" type="date" placeholder="选择日期" size="mini" style="width:150px;">
+                            <el-date-picker v-model="value1" type="year" format="yyyy年"
+                            value-format="yyyy" placeholder="选择日期" size="mini" style="width:150px;">
                             </el-date-picker>
                         </div>
                         <div>
@@ -516,10 +345,10 @@
       <script type="text/x-template" id="business">
         <div>
         <ul class="dia-tab">
-            <li :class="{active:isActive === '1'}"><span>发展同比</span></li>
-            <li><span>发展环比</span></li>
-            <li><span>拆机同比</span></li>
-            <li><span>拆机环比</span></li>
+            <li :class="{'active':isActive === '1'}" @click="isActive='1'"><span>发展同比</span></li>
+            <li :class="{'active':isActive === '2'}" @click="isActive='2'"><span>发展环比</span></li>
+            <li :class="{'active':isActive === '3'}" @click="isActive='3'"><span>拆机同比</span></li>
+            <li :class="{'active':isActive === '4'}" @click="isActive='4'"><span>拆机环比</span></li>
         </ul>
           <div class='dia_header'>
               <div class="left">
@@ -568,6 +397,204 @@
 
     </div>
 </body>
+<!-- 网管大厦 -->
+<script type="text/x-template" id="building">
+  <div style="margin-left:60px">
+      <div class="wg-right-box">
+          <div class="wg-right">
+              <div>
+                  <img src="./resources/images/export-icon.png" alt="">
+                  <span class="nstration bottom">聚类市场基础信息明细下载</span>
+              </div>
+              <div style="margin:0">
+                  <img src="./resources/images/export-icon.png" alt="">
+                  <span class="nstration bottom">聚类市场业务信息明细下载</span>
+              </div>
+          </div>
+      </div>
+      <div class="header_bg">
+          <div class="flex_col_2">
+              <div class="center">
+                  <span class="baseInfo">基本信息</span>
+                  <span class="spot"></span>
+                  <span class="blueInfo">楼宇编码：</span>
+                  <span class="whiteInfo">{{basicData.BUILD_CODE}}</span>
+              </div>
+              <div class="line"></div>
+          </div>
+          <div class="flex_col_1">
+              <div class="center2">
+                  <span class="spot"></span>
+                  <span class="blueInfo">楼层数：</span>
+                  <span class="whiteInfo">{{basicData.TOP_FLOOR_NUM}} &nbsp;层</span>
+              </div>
+              <div class="line"></div>
+          </div>
+          <div class="flex_col_1"> 
+              <div class="center2">
+                  <span class="spot"></span>
+                  <span class="blueInfo">建筑面积：</span>
+                  <span class="whiteInfo">{{basicData.BUILT_AREA}} &nbsp;㎡</span>
+              </div>
+              <div class="line"></div>
+          </div>
+          <div class="flex_col_3">
+              <div class="center">
+                  <span class="spot ml15"></span>
+                  <span class="blueInfo">地址：</span>
+                  <span class="whiteInfo">{{basicData.ADDRESS}}</span>
+              </div>
+              <div class="line"></div>
+          </div>
+      </div>
+
+      <div class="mainBox">
+          <div class="col_1 left">
+              <div class="col_top">
+                  <div class="tit">固网业务总览</div>
+                  <div class="out_div">
+                      <div>
+                          <span class="blueInfo">月收入</span>
+                          <span class="blueInfo size20">{{basicData.FEE_GW}}</span>
+                          <span class="blueInfo">(元)</span>
+                      </div>
+                      <div>
+                          <span class="blueInfo">客户数</span>
+                          <span class="blueInfo size20">{{basicData.CUST_GW}}</span>
+                          <span class="blueInfo">(户)</span>
+                      </div>
+                  </div>
+              </div>
+              <div class="col_bottom">
+                  <div class="tit">固网欠费</div>
+                  <div class="bot_content">
+                      <div>
+                          <span class="blueInfo">当月欠费</span>
+                          <span class="blueInfo size20">{{basicData.OWE_FEE_M}}</span>
+                          <span class="blueInfo">(万)</span>
+                      </div>
+                      <div class="lineChart" id="monthLine" style="width:250px;height:50px"></div>
+                      <div>
+                          <span class="violet">当年累计欠费</span>
+                          <span class="violet size20">{{basicData.OWE_FEE_Y}}</span>
+                          <span class="blueInfo">(万)</span>
+                      </div>
+                      <div class="lineChart" id="yearLine" style="width:250px;height:50px"></div>
+                  </div>
+              </div>
+          </div>
+          <div class="col_1 left">
+              <div class="col_top">
+                  <div class="tit">创新业务总览</div>
+                  <div class="out_div">
+                      <div>
+                          <span class="blueInfo">月收入</span>
+                          <span class="blueInfo size20">{{basicData.FEE_CX}}</span>
+                          <span class="blueInfo">(元)</span>
+                      </div>
+                      <div>
+                          <span class="blueInfo">客户数</span>
+                          <span class="blueInfo size20">{{basicData.CUST_CX}}</span>
+                          <span class="blueInfo">(户)</span>
+                      </div>
+                  </div>
+              </div>
+              <div class="col_bottom">
+                  <div class="tit">资源信息总览</div>
+                  <div class="bot_content">
+                      <ul class="myTab">
+                          <li class="active">FTTH资源</li>
+                          <li>专线资源</li>
+                          <li>光缆</li>
+                          <li>成端设备</li>
+                      </ul>
+                      <div style="height:170px" id="pieChart"></div>
+                  </div>
+              </div>
+          </div>
+          <div class="col_1">
+              <div style="position: relative;">
+                  <div class="tit">资源信息</div>
+              </div>
+              <div class="col_1_top">
+                  <div  style="padding-top: 4px;">
+                      <span class="blueInfo">分光器</span>
+                      <span class="blueInfo">0 &nbsp;(个)</span>
+                  </div>
+                  <div style="margin-top: 30px;">
+                      <span class="blueInfo">FTTH端口</span>
+                      <span class="blueInfo">0 &nbsp;(个)</span>
+                  </div>
+                  <div style="margin-top: 30px;">
+                      <span class="blueInfo">占用端口</span>
+                      <span class="blueInfo">0 &nbsp;(个)</span>
+                  </div>
+                  <div style="margin-top: 34px;">
+                      <span class="blueInfo">楼层终端盒</span>
+                      <span class="blueInfo">0 &nbsp;(个)</span>
+                  </div>
+                  <div style="margin-top: 30px;">
+                      <span class="blueInfo">用户终端盒</span>
+                      <span class="blueInfo">0 &nbsp;(个)</span>
+                  </div>
+              </div>
+
+              <div class="col_1_top_2">
+                  <div  style="padding-top: 32px;">
+                      <span class="blueInfo">楼内光交箱</span>
+                      <span class="blueInfo">0 &nbsp;(个)</span>
+                  </div>
+                  <div style="margin-top: 30px;">
+                      <span class="blueInfo">楼外光交箱</span>
+                      <span class="blueInfo">0 &nbsp;(个)</span>
+                  </div>
+              </div>
+          </div>
+          <div class="col_2">
+              <div class="rt_content">
+                  <div class="imgBox">
+                      <!-- @click="goDetail" -->
+                      <div></div>
+                  </div>
+                  <div class="rt_line"></div>
+                  <ul class="rt_bottom">
+                      <li>
+                          <div>
+                              <span class="blueInfo">承包经理：</span>
+                              <span class="blueInfo">{{basicData.CONTRACT_MANAGER}}</span>
+                          </div>
+                          <div>
+                              <span class="blueInfo">联系方式：</span>
+                              <span class="blueInfo">{{basicData.CONTRACT_MANAGER_INFO}}</span>
+                          </div>
+                      </li>
+                      <li>
+                          <div>
+                              <span class="blueInfo">装维经理：</span>
+                              <span class="blueInfo">{{basicData.MAINTAIN_MANAGER}}</span>
+                          </div>
+                          <div>
+                              <span class="blueInfo">联系方式：</span>
+                              <span class="blueInfo">{{basicData.MAINTAIN_MANAGER_INFO}}</span>
+                          </div>
+                      </li>
+                      <li>
+                          <div>
+                              <span class="blueInfo">响应经理：</span>
+                              <span class="blueInfo">{{basicData.RESPONSE_MANAGER}}</span>
+                          </div>
+                          <div>
+                              <span class="blueInfo">联系方式：</span>
+                              <span class="blueInfo">{{basicData.RESPONSE_MANAGER_INFO}}</span>
+                          </div>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+      
+  </div>
+</script>
 <!-- 网管大厦二级 -->
 <script type="text/x-template" id="buildingSed">
     <div class="buildingSed">
@@ -651,6 +678,12 @@
                 dialogTitle: '',
                 dialogCompent: "",
                 thirdParams: "", //二级传至三级页面参数
+                mapCheckbox:["1","2","3"],
+                mapSearch:"",
+                showMapSearch:true,
+                buildingData:[],
+                industryData:[],
+                marketData:[]
             }
         },
         components:{
@@ -659,6 +692,25 @@
             "customer":customer,
             "business":business,
             "buildingSed":buildingSed
+        },
+        watch:{
+          mapCheckbox(val){
+            if(val.indexOf("1")==-1){
+              this.layer1.hide();
+            }else{
+              this.layer1.show();
+            }
+            if(val.indexOf("2")==-1){
+              this.layer2.hide();
+            }else{
+              this.layer2.show();
+            }
+            if(val.indexOf("3")==-1){
+              this.layer3.hide();
+            }else{
+              this.layer3.show();
+            }
+          }
         },
         methods: {
             //子组件传递过来的参数
@@ -674,12 +726,12 @@
                     this.thirdParams = thirdParams;
                 }
             },
-            sendMsg: function (title,compent) {
+            sendMsg: function (title,compent,buildingCode) {
                 const param = {
                     dialogCompent: compent,
                     dialogTitle: title
                 };
-                this.headCall(param); //第一个参数是父组件中v-on绑定的自定义回调方法，第二个参数为传递的参数
+                this.headCall(param,buildingCode); //第一个参数是父组件中v-on绑定的自定义回调方法，第二个参数为传递的参数
             },
             drawGaugeChart: function(){
               let gaugeChart = echarts.init(document.getElementById('gaugeChart'));
@@ -786,6 +838,144 @@
                 thisChart.resize();
               });
             },
+            //绘制地图
+            drawMap(){
+              var self = this;
+              $(".mapSearchPop").mouseenter(()=>{
+                this.showMapSearch = false;
+                $(".mapSearchPop").show();
+              });
+              this.map = new AMap.Map('mapContainer', {
+                  zoom:8.5,//级别
+                  center: [117.4,39.5],//中心点坐标
+                  viewMode:'3D',//使用3D视图
+                  mapStyle: 'amap://styles/darkblue',
+              });
+              var disProvince = new AMap.DistrictLayer.Province({
+                  zIndex:12,
+                  adcode:['120000'],
+                  depth:2,
+                  styles:{
+                      'fill':'rgba(21, 68, 124,0.5)',
+                      'province-stroke':'cornflowerblue',
+                      'city-stroke': '#3DB4A1',//中国地级市边界
+                      'county-stroke': '#3DB4A1'//中国区县边界  
+                  }
+              })
+              var colors = {};
+              var getColorByAdcode = function (adcode) {
+                  if (!colors[adcode]) {
+                      var gb = Math.random() * 155 + 50;
+                      colors[adcode] = 'rgb(' + gb + ',' + gb + ',255)';
+                  }
+                  return colors[adcode];
+              };
+              disProvince.setMap(this.map);
+
+                self.layer1 = new Loca.IconLayer({
+                    map: this.map,
+                    eventSupport: true,
+                });
+                self.layer2 = new Loca.IconLayer({
+                    map: this.map,
+                    eventSupport: true,
+                });
+                self.layer3 = new Loca.IconLayer({
+                    map: this.map,
+                    eventSupport: true,
+                });
+                $.ajax({
+                    type:"GET", 
+                    url:"http://10.26.14.25:8087/microservice-ui/jlscMap/getDataForCoordinate",
+                    success:function(ret){
+                        var data = JSON.parse(ret);
+                        self.buildingData = data.resultData1;
+                        self.industryData = data.resultData2;
+                        self.marketData = data.resultData3;
+                        self.layer1.setData(self.buildingData, {
+                            lnglat: (params)=>{
+                              return [params.value.LONGITUDE,params.value.LATITUDE]
+                            }
+                        });
+                        self.layer2.setData(self.industryData, {
+                            lnglat: (params)=>{
+                              return [params.value.LONGITUDE,params.value.LATITUDE]
+                            }
+                        });
+                        self.layer3.setData(self.marketData, {
+                            lnglat: (params)=>{
+                              return [params.value.LONGITUDE,params.value.LATITUDE]
+                            }
+                        });
+                        self.layer1.setOptions({
+                            source: './resources/images/building-icon.png',
+                            style: {
+                                size:40
+                            }
+                        });
+                        self.layer2.setOptions({
+                            source: './resources/images/industry-icon.png',
+                            style: {
+                                size:40
+                            }
+                        });
+                        self.layer3.setOptions({
+                            source: './resources/images/market-icon.png',
+                            style: {
+                                size:40
+                            }
+                        });
+                        // 渲染
+                        self.layer1.render();
+                        self.layer2.render();
+                        self.layer3.render();
+                    },
+                });
+                this.layer1.on('click', function (ev) {
+                  self.sendMsg('天津市网管大厦','building',ev.rawData.BUILD_CODE)
+                });
+                this.layer2.on('click', function (ev) {
+                  self.sendMsg('天津市网管大厦','building',ev.rawData.BUILD_CODE)
+                });
+                this.layer3.on('click', function (ev) {
+                  self.sendMsg('天津市网管大厦','building',ev.rawData.BUILD_CODE)
+                });
+            },
+            querySearch(queryString, cb) {
+              var params = {
+                buildName:queryString,
+                marketType:this.mapCheckbox.join(',')
+              }
+              $.ajax({
+                type:"POST", 
+                url:"http://10.26.14.25:8087/microservice-ui/jlscMap/getDataForSelect",
+                data: {
+                  JsonParam: JSON.stringify(params)
+                },
+                success:function(ret){
+                  var data = JSON.parse(ret);
+                  console.log(data);
+                  var results = [];
+                  data.resultData.map((obj)=>{
+                      obj.value = obj.BUILD_NAME
+                      results.push(obj);
+                  });
+                  cb(results);
+                }
+              });
+            },
+            handleSelect(item) {
+              console.log(item);
+              this.showMapSearch = true;
+              let lngLat = [item.LONGITUDE,item.LATITUDE];
+              this.map.setZoomAndCenter(20,lngLat);
+            },
+            hideSuggest(){
+              this.showMapSearch = true;
+              if($(".mapSearchPop").css("display")!="none"){
+                $(".mapSearchPop").hide();
+              }
+            }
         },
         created() {
           
@@ -797,40 +987,8 @@
           }, 1000)
           this.drawGaugeChart();
           this.drawPieChart('pieChartAll');
-          var map = new AMap.Map('mapContainer', {
-              zoom:11,//级别
-              center: [116.397428, 39.90923],//中心点坐标
-              viewMode:'3D',//使用3D视图
-              mapStyle: 'amap://styles/darkblue',
-          });
-          const layer = new Loca.DistrictLayer({
-              map: map
-          });
-
-          layer.setData(heatdata, {
-              lnglat: 'lnglat',
-              value: 'count',
-          });
-
-          layer.setOptions({
-              style: {
-                  // 行政区 adcode
-                  adcode: 110000,
-                  // 热力聚合模式，count 为点数量加和
-                  mode: 'count',
-                  // 颜色范围
-                  color: [
-                    '#f0f9e8',
-                    '#bae4bc',
-                    '#7bccc4',
-                    '#43a2ca',
-                    '#0868ac',
-                  ]
-              }
-          });
-
-          // 渲染
-          layer.render();
+          this.drawMap();
+          
         },
         beforeDestroy() {
             if (this.timer) {

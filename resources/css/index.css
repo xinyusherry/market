@@ -46,6 +46,51 @@ li {
   justify-content: center;
   align-items: center;
 }
+.el-checkbox__inner {
+  background-color: transparent;
+  border-color: #2C7DE0;
+}
+.el-checkbox__label {
+  color: #2C7DE0;
+}
+.draw-leave-active,
+.draw-enter-active {
+  transition: all 0.7s ease;
+}
+.draw-enter,
+.draw-leave-to {
+  opacity: 0;
+  -webkit-transform: translateX(-242px);
+  transform: translateX(-242px);
+}
+.draw-enter-to,
+.draw-leave {
+  opacity: 1;
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+}
+.mapSearchPop {
+  background: transparent;
+  border-color: transparent;
+}
+.mapSearchPop.el-popper[x-placement^=bottom] {
+  margin-top: 0;
+}
+.mapSearchPop > div {
+  background: rgba(22, 69, 125, 0.7);
+}
+.mapSearchPop > div li {
+  color: #0FBBF3;
+}
+.mapSearchPop > div li:hover,
+.mapSearchPop > div li:active {
+  background: rgba(22, 69, 125, 0.9);
+  color: #2AD6E0;
+}
+.mapSearchPop .popper__arrow,
+.mapSearchPop .popper__arrow::after {
+  border: none;
+}
 #pageContainer {
   background: url("../images/body-bg.png") no-repeat center / 100% 100%;
 }
@@ -147,6 +192,55 @@ li {
   height: 100%;
   clip-path: polygon(12.3% 0, 100% 0, 100% 100%, 2% 100%, 0 98%, 0 9.4%);
   border-bottom-right-radius: 11% !important;
+  position: relative;
+}
+#pageContainer section > div.map #mapContainer .mapCheckbox {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 99;
+  background: rgba(22, 69, 125, 0.7);
+  border: 1px solid #16457D;
+  line-height: 3;
+}
+#pageContainer section > div.map #mapContainer .mapCheckbox .el-checkbox {
+  margin: 0 0 0 10px;
+}
+#pageContainer section > div.map #mapContainer .mapCheckbox .icon {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+}
+#pageContainer section > div.map #mapContainer .mapCheckbox .icon.building {
+  background: url("../images/building-icon.png") no-repeat center / 130%;
+}
+#pageContainer section > div.map #mapContainer .mapCheckbox .icon.industry {
+  background: url("../images/industry-icon.png") no-repeat center / 140%;
+}
+#pageContainer section > div.map #mapContainer .mapCheckbox .icon.market {
+  background: url("../images/market-icon.png") no-repeat center / 130%;
+}
+#pageContainer section > div.map #mapContainer .mapSearch {
+  position: absolute;
+  top: 10%;
+  left: 0;
+  z-index: 99;
+  padding: 5px 0 0 5px;
+}
+#pageContainer section > div.map #mapContainer .mapSearch .searchIcon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  background: url("../images/searchIcon.png") no-repeat center / 130%;
+}
+#pageContainer section > div.map #mapContainer .mapSearch .mapSearchInput input {
+  background: rgba(22, 69, 125, 0.7) !important;
+}
+#pageContainer section > div.map #mapContainer .mapSearch .mapSearchInput .el-icon-search:before {
+  color: #2AD6E0;
 }
 #pageContainer section > div .lf-top {
   height: 10%;

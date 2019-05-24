@@ -46,6 +46,46 @@ li{
   justify-content: center;
   align-items: center;
 }
+.el-checkbox__inner{
+  background-color: transparent;
+  border-color: @date-blue;
+}
+.el-checkbox__label{
+  color: @date-blue;
+}
+.draw-leave-active,.draw-enter-active {
+  transition: all 0.7s ease;
+}
+.draw-enter, .draw-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+  -webkit-transform: translateX(-242px);
+  transform: translateX(-242px);
+}
+.draw-enter-to, .draw-leave /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 1;
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+}
+.mapSearchPop{
+  background: transparent;
+  border-color: transparent;
+  &.el-popper[x-placement^=bottom]{
+    margin-top: 0;
+  }
+  >div{
+    background: rgba(22, 69, 125,0.7);
+    li{
+      color: @blue;
+      &:hover,&:active{
+        background: rgba(22, 69, 125,0.9);
+        color: @light-blue;
+      }
+    }
+  }
+  .popper__arrow, .popper__arrow::after{
+    border: none;
+  }
+}
 #pageContainer{
   background: url("../images/body-bg.png")no-repeat center / 100% 100%;
   header{
@@ -145,6 +185,57 @@ li{
           clip-path: polygon(12.3% 0,100% 0,100% 100%,
                     2% 100%,0 98%,0 9.4%);
           border-bottom-right-radius: 11% !important;
+          position: relative;
+          .mapCheckbox{
+            position: absolute;
+            top:0;
+            right:0;
+            z-index: 99;
+            background: rgba(22, 69, 125,0.7);
+            border: 1px solid #16457D;
+            line-height: 3;
+            .el-checkbox{
+              margin: 0 0 0 10px;
+            }
+            .icon{
+              display: inline-block;
+              width: 24px;
+              height: 24px;
+              vertical-align: middle;
+              &.building{
+                background: url("../images/building-icon.png")no-repeat center / 130%;
+              }
+              &.industry{
+                background: url("../images/industry-icon.png")no-repeat center / 140%;
+              }
+              &.market{
+                background: url("../images/market-icon.png")no-repeat center / 130%;
+              }
+            }
+          }
+          .mapSearch{
+            position: absolute;
+            top:10%;
+            left:0;
+            z-index: 99;
+            padding: 5px 0 0 5px;
+            .searchIcon{
+              position: absolute;
+              top: 0;
+              left: 0;
+              width:50px;
+              height:50px;
+              background: url("../images/searchIcon.png")no-repeat center / 130%;
+            }
+            .mapSearchInput{
+              input{
+                background: rgba(22, 69, 125,0.7) !important;
+              }
+              .el-icon-search:before{
+                color: @light-blue
+              }
+            }
+          }
         }
       }
       .lf-top{
