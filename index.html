@@ -932,13 +932,13 @@
                     },
                 });
                 this.layer1.on('click', function (ev) {
-                  self.sendMsg('天津市网管大厦','building',ev.rawData.BUILD_CODE)
+                  self.sendMsg(ev.rawData.BUILD_NAME,'building',ev.rawData.BUILD_CODE)
                 });
                 this.layer2.on('click', function (ev) {
-                  self.sendMsg('天津市网管大厦','building',ev.rawData.BUILD_CODE)
+                  self.sendMsg(ev.rawData.BUILD_NAME,'building',ev.rawData.BUILD_CODE)
                 });
                 this.layer3.on('click', function (ev) {
-                  self.sendMsg('天津市网管大厦','building',ev.rawData.BUILD_CODE)
+                  self.sendMsg(ev.rawData.BUILD_NAME,'building',ev.rawData.BUILD_CODE)
                 });
             },
             querySearch(queryString, cb) {
