@@ -931,14 +931,20 @@
                         self.layer3.render();
                     },
                 });
-                this.layer1.on('click', function (ev) {
-                  self.sendMsg(ev.rawData.BUILD_NAME,'building',ev.rawData.BUILD_CODE)
+                self.layer1.on('click', function (ev) {
+                  if(self.mapCheckbox.indexOf("1")!=-1){
+                    self.sendMsg(ev.rawData.BUILD_NAME,'building',ev.rawData.BUILD_CODE);
+                  }
                 });
-                this.layer2.on('click', function (ev) {
-                  self.sendMsg(ev.rawData.BUILD_NAME,'building',ev.rawData.BUILD_CODE)
+                self.layer2.on('click', function (ev) {
+                  if(self.mapCheckbox.indexOf("2")!=-1){
+                    self.sendMsg(ev.rawData.BUILD_NAME,'building',ev.rawData.BUILD_CODE);
+                  }
                 });
-                this.layer3.on('click', function (ev) {
-                  self.sendMsg(ev.rawData.BUILD_NAME,'building',ev.rawData.BUILD_CODE)
+                self.layer3.on('click', function (ev) {
+                  if(self.mapCheckbox.indexOf("3")!=-1){
+                    self.sendMsg(ev.rawData.BUILD_NAME,'building',ev.rawData.BUILD_CODE);
+                  }
                 });
             },
             querySearch(queryString, cb) {
